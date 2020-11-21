@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import CardList from './template/CardList';
+import CardList from './templates/CardList';
 import {dataSet} from "./dataSet"
 
 
