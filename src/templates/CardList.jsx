@@ -1,4 +1,5 @@
-import React from 'react'; 
+import { Grid } from '@material-ui/core';
+import React, {useMemo} from 'react'; 
 
 const sliceByNumber = (array , number) => {
   const length = Math.ceil(array.length / number)
@@ -10,14 +11,23 @@ const sliceByNumber = (array , number) => {
   )
 }
 
-const  CardList = ({dataSet}) => {
-  const newDatas = sliceByNumber(dataSet, 5)
-  console.log(newDatas)
+const CardList = ({dataSet}) => {
 
-  return (
-      { }
-  )
- 
+  const dividedDataSet = useMemo(() => sliceByNumber(dataSet, 3),[]);
+   
+   return (
+     <>
+       
+          <Grid container direction="row" justify="center" alignItems="center">
+          {dividedDataSet.map((datas) =>(
+             datas.map((data) => (
+               <Grid item  xs={4} color="primary">
+               {data.name}
+               </Grid>
+             ))
+       ))}
+          </Grid>
+     </>
+   )
 }
-
-export default CardList
+export default CardList;
