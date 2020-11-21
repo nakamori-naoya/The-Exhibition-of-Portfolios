@@ -19,7 +19,9 @@ import MoreVertIcon from '@material-ui/icons/MoreVert';
 
 const useStyles = makeStyles((theme) => ({
   root: {
-    maxWidth: 345,
+    maxWidth: "1000px",
+    margin: "0 auto",
+    marginTop: "60px"
   },
   media: {
     height: 0,
@@ -30,10 +32,10 @@ const useStyles = makeStyles((theme) => ({
 const CardList = ({dataSet}) => {
   const classes = useStyles();
    return (
-     <>
+     <div className={classes.root}>
       <Grid container direction="row" justify="space-around" alignItems="center" spacing={3}>
           {dataSet.map((datas) =>(
-          <Grid item  xs={4} >
+          <Grid item  xs={6} >
             <Card>
               <CardMedia
                 className={classes.media}
@@ -48,7 +50,7 @@ const CardList = ({dataSet}) => {
           </Grid>
        ))}
       </Grid>
-     </>
+     </div>
    )
 }
 
