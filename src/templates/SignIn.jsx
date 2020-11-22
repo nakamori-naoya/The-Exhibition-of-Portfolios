@@ -4,6 +4,7 @@ import {useDispatch} from "react-redux"
 import {push} from "connected-react-router"
 import TextInput from '../UIkit/TextInput';
 import LightBlueButton from '../UIkit/LightBlueButton';
+import GoogleButton from "../UIkit/GoogleButton";
 
 
 
@@ -38,17 +39,15 @@ const SignIn = () =>{
         <div className="module-spacer--medium" />
         <div className="center">
           <LightBlueButton
-          label={"サインイン"}
+          label={"Sign In"}
           onClick={()=> dispatch(signIn(email, password))}
           color="primary"
           />
            <div className="module-spacer--medium" />
-          <LightBlueButton
-          label={"Googleでログイン"}
+          <GoogleButton
+          label={"Sign in with Google"}
           onClick={()=> dispatch(signInWithGoogle())}
-          color="primary"
           />
-
            <p onClick={()=> dispatch(push("/signup"))}>アカウント登録がまだの方はこちら</p>
            <p onClick={()=> dispatch(push("/signin/reset"))}>パスワードを忘れた場合はこちら</p>
         </div>

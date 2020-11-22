@@ -74,7 +74,6 @@ export const signInWithGoogle = () => {
   const provider = new firebase.auth.GoogleAuthProvider()
   auth.signInWithPopup(provider)
      .then(result => {
-       console.log(result)
           const user = result.user
             if(user){
                  const uid = user.uid;
