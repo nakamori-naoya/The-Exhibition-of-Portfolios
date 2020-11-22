@@ -2,12 +2,16 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import {Provider} from "react-redux"
+import * as History from "history"
+import {ConnectedRouter}from "connected-react-router"
+
+const history =History.createBrowserHistory();
 
 ReactDOM.render(
-  <React.StrictMode>
+  <ConnectedRouter history={history}>
     <App />
-  </React.StrictMode>,
+  </ConnectedRouter>,
   document.getElementById('root')
 );
 

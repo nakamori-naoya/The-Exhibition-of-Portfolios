@@ -1,12 +1,13 @@
 import React from 'react'; 
-import {Route, Switch} from  'react-router';
+import {Switch, Route} from  "react-router"
+import SignUp from './templates/SignUp';
+
 
 const Router = () => {
-
  return (
-   <Switch>
-     
-   </Switch>
+  <Switch>
+    <Route exact path={"/signup"}  component={SignUp}/>
+  </Switch>
  )
 }
 export default Router;
