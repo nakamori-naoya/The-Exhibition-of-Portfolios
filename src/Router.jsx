@@ -1,14 +1,18 @@
 import React from 'react'; 
-import {Switch, Route} from  "react-router"
+import {Route,Switch} from  "react-router"
 import SignUp from './templates/SignUp';
-import App from './App';
+import SignIn from './templates/SignIn';
 
 
 const Router = () => {
  return (
   <Switch>
-    <Route exact path={"/signup"}  component={SignUp}/>
-    <Route exact path={"(/)?"}  component={App}/>
+    <Route exact path={"/signup"}>
+      <SignUp/>
+    </Route>
+    <Route exact path={"/signin"} >
+      <SignIn/>
+    </Route>
   </Switch>
  )
 }

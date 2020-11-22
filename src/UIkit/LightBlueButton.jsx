@@ -12,7 +12,7 @@ const useStyles = makeStyles ({
   }
 })
 
-const PrimaryButton = (props) => {
+const LightBlueButton = (props) => {
      const classes = useStyles();
   return (
   <Button className={classes.button} 
@@ -23,4 +23,4 @@ const PrimaryButton = (props) => {
   </Button>
   )
 }
-export default PrimaryButton
+export default LightBlueButton;
