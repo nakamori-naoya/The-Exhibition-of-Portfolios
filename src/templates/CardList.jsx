@@ -39,7 +39,7 @@ const CardList = ({dataSet}) => {
             <Card>
               <CardMedia
                 className={classes.media}
-                image="../images/fightClub.png"
+                image="../images/aa.png"
               />
               <Typography variant="body2" color="textSecondary" component="p">
                {datas.lesson}
