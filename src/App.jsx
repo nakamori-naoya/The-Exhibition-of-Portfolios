@@ -7,6 +7,7 @@ import {dataSet} from "./dataSet"
 const App = () => {
      return (
     <>
+       
        <CardList dataSet={dataSet} />
     </>
   );
