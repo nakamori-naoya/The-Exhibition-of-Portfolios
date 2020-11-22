@@ -6,7 +6,6 @@ import {ConnectedRouter} from "connected-react-router";
 import * as History from "history";
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import {MuiThemeProvider} from "@material-ui/core"
 
 const history = History.createBrowserHistory();
 export const store = createStore(history);

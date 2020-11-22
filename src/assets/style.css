@@ -10,6 +10,11 @@
 }
 
 /********section*********/
+.center {
+  margin: 0 auto;
+  text-align: center;
+}
+
 /*命名規則については、https://murashun.jp/blog/20170729-01.html */
 .c-main {
   padding: 96px 0;
