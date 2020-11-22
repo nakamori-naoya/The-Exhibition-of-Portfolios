@@ -3,6 +3,8 @@ import TextInput from '../UIkit/TextInput';
 import LightBlueButton from "../UIkit/LightBlueButton"
 import { useDispatch } from 'react-redux';
 import { signUp } from '../reducks/users/operations';
+import { push } from 'connected-react-router';
+
 
 
 const SignUp = () => {
@@ -57,6 +59,13 @@ const SignUp = () => {
        onClick={()=> dispatch(signUp(username, email, password, confirmPassword))}
        />
      </div>
+     <div className='module-spacer--medium'/> 
+     <div className="center">
+       <LightBlueButton
+         label={"サインイン"}
+         onClick={()=> dispatch(push("/signin"))}
+         />
+      </div>
    </div>
  )
 }
