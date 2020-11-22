@@ -1,14 +1,13 @@
 import React from 'react';
 import './App.css';
-import CardList from './templates/CardList';
-import {dataSet} from "./dataSet"
-
+import Router from "./Router"
 
 const App = () => {
      return (
     <>
-       
-       <CardList dataSet={dataSet} />
+       <main className="c-main">
+          <Router/>
+       </main>
     </>
   );
 }

@@ -1,0 +1,16 @@
+/*********** Module Spacer ***********/
+.module-spacer--extra-small {
+  height: 12px;
+}
+.module-spacer--small {
+  height: 20px;
+}
+.module-spacer--medium {
+  height: 32px;
+}
+
+/********section*********/
+.c-main {
+  padding: 96px 0;
+  background-color: aqua;
+}
