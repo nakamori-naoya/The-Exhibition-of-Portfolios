@@ -4,6 +4,7 @@ import TextInput from '../UIkit/TextInput';
 import { useState, useCallback } from 'react';
 import LightBlueButton from '../UIkit/LightBlueButton';
 import { useDispatch , useSelector} from 'react-redux';
+import { savePortfolio } from '../reducks/Portfolios/operations';
 
 
 export const EditPortofolio = () => {
@@ -41,6 +42,7 @@ export const EditPortofolio = () => {
     setFutureIssue(event.target.value)
   }, [setFutureIssue]);
 
+  let id = 1111
   return (
     <section>
       <h2 className="u-text__headline u-text-center" >アプリを出展</h2>
@@ -71,7 +73,7 @@ export const EditPortofolio = () => {
          />
         <LightBlueButton
         label={"登録"}
-       // onClick={()=>dispatch()}
+        onClick={()=>dispatch(savePortfolio(id, appName, appUrl, githubUrl, backgroudOfCreation, growth, futureIssue))}
         />
       </div>
     </section>

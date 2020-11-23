@@ -1,6 +1,8 @@
 import { db, FirebaseTimestamp } from '../../firebase/index';
+import { push } from 'connected-react-router';
 
-const PortfolioRef = db.collection("portfolio")
+const portfolioRef = db.collection("portfolio")
+
 export const savePortfolio = (id,appName, appUrl, githubUrl, backgroudOfCreation, growth, futureIssue) => {
   return async (dispatch) => {
     const timestamp = FirebaseTimestamp.now()
@@ -14,12 +16,17 @@ export const savePortfolio = (id,appName, appUrl, githubUrl, backgroudOfCreation
       updated_at: timestamp
     }
    if(true){
-     const ref = PortfolioRef.doc();
+     const ref = portfolioRef.doc();
      id = ref.id
      data.id = id;
      data.created_at = timestamp
    }
-
+   return portfolioRef.doc(id).set(data, {merge: true})
+      .then(()=>{
+        dispatch(push("/"))
+      }).catch((error)=>{
+        throw new Error(error)
+      })
 
 }
 }
