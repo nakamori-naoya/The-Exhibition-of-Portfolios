@@ -2,9 +2,10 @@ import React, {useCallback, useState} from "react"
 import {signIn, signInWithGoogle} from "../reducks/users/operations"
 import {useDispatch} from "react-redux"
 import {push} from "connected-react-router"
-import TextInput from '../UIkit/TextInput';
 import LightBlueButton from '../UIkit/LightBlueButton';
 import GoogleButton from "../UIkit/GoogleButton";
+import BoxTextInput from '../UIkit/BoxTextInput';
+
 
 
 
@@ -27,13 +28,13 @@ const SignIn = () =>{
         <h2 className="u-text__headline  u-text-center" >サインイン画面</h2>
         <div className="module-spacer--medium"/>
 
-        <TextInput
+        <BoxTextInput
             fullWidth={true}  label={"メールアドレス"}  multiline={false}  required={true}
-            rows={1} value={email} type={"email"} onChange={inputEmail}
+            rows={1} value={email} type={"email"} onChange={inputEmail} placeholder={"sample@gmail.com"}
         />
-        <TextInput
+        <BoxTextInput
             fullWidth={true}  label={"パスワード"}  multiline={false}  required={true}
-            rows={1} value={password} type={"password"} onChange={inputPassword}
+            rows={1} value={password} type={"password"} onChange={inputPassword} placeholder={"maximum1936"}
         />
         
         <div className="module-spacer--medium" />

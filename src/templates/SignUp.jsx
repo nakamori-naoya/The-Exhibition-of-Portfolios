@@ -4,6 +4,7 @@ import LightBlueButton from "../UIkit/LightBlueButton"
 import { useDispatch } from 'react-redux';
 import { signUp } from '../reducks/users/operations';
 import { push } from 'connected-react-router';
+import BoxTextInput from '../UIkit/BoxTextInput';
 
 
 
@@ -36,20 +37,20 @@ const SignUp = () => {
    <div className="c-section-container">
      <h2 className="u-text__headline u-text-center" >アカウントの登録</h2>
      <div className="module-spacer--medium"/>
-     <TextInput
-     fullWidth={true} label={"ユーザー名"} multiline={false}
+     <BoxTextInput
+     fullWidth={true} label={"ユーザー名"} multiline={false} placeholder={"田中太郎"}
      rows={1} type={"text"} value={username} required={true} onChange={inputUsername}
      />
-     <TextInput
-     fullWidth={true} label={"メールアドレス"} multiline={false}
+     <BoxTextInput
+     fullWidth={true} label={"メールアドレス"} multiline={false} placeholder={"sample@gmail.com"}
      rows={1} type={"text"} value={email} required={true} onChange={inputEmail}
      /> 
-     <TextInput
-     fullWidth={true} label={"パスワード(半角英数字で6文字以上)"} multiline={false}
+     <BoxTextInput
+     fullWidth={true} label={"パスワード(半角英数字で6文字以上)"} multiline={false} placeholder={"maximum1936"}
      rows={1} type={"password"} value={password} required={true} onChange={inputPassword}
      /> 
-     <TextInput
-     fullWidth={true} label={"パスワードの再確認"} multiline={false}
+     <BoxTextInput
+     fullWidth={true} label={"パスワードの再確認"} multiline={false} placeholder={"maximum1936"}
      rows={1} type={"password"} value={confirmPassword} required={true} onChange={inputConfirmPassword}
      />  
      <div className="module-spacer--small"/>
