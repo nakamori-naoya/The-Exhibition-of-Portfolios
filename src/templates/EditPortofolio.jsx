@@ -2,9 +2,14 @@ import React from 'react'
 import BoxTextInput from '../UIkit/BoxTextInput';
 import TextInput from '../UIkit/TextInput';
 import { useState, useCallback } from 'react';
+import LightBlueButton from '../UIkit/LightBlueButton';
+import { useDispatch , useSelector} from 'react-redux';
 
 
 export const EditPortofolio = () => {
+  const dispatch = useDispatch(); 
+  const selector =  useSelector((state) => state);
+
   const [appName, setAppName] = useState(""),
         [appUrl, setAppUrl] = useState(""),
         [githubUrl, setGithubUrl] = useState(""),
@@ -57,14 +62,17 @@ export const EditPortofolio = () => {
          onChange={inputBackgroudOfCreation} rows={3} rowsMax={5} value={backgroudOfCreation} type={"text"} placeholder={"中学生向けの英語教材に音声読み上げ機能がついていないことに以前から・・・"}
          />
          <TextInput
-         fullWidth={true} label={"成長点"} multiline={true} required={true}
+         fullWidth={true} label={"成長した点"} multiline={true} required={true}
          onChange={inputGrowth} rows={3} rowsMax={5} value={growth} type={"text"} placeholder={"前回作成したアプリで実装できなかった○○の実装をすることができた"}
          />
          <TextInput
          fullWidth={true} label={"今後の課題"} multiline={true} required={true}
          onChange={inputFutureIssue} rows={3} rowsMax={5} value={futureIssue} type={"text"} placeholder={"Firebaseでのクエリの投げ方がいまいち分からず、ユーザーが検索する際に・・・"}
          />
-
+        <LightBlueButton
+        label={"登録"}
+       // onClick={()=>dispatch()}
+        />
       </div>
     </section>
   )
