@@ -5,6 +5,7 @@ import SignIn from './templates/SignIn';
 import Auth from './Auth';
 import { Home } from './Home';
 import { ResetPassword } from './templates/ResetPassword';
+import CardList from './templates/CardList';
 
 
 const Router = () => {
@@ -16,6 +17,7 @@ const Router = () => {
 
     <Auth>
       <Route exact path={'(/)?'} component={Home} />
+      <Route exact path={'/index'} component={CardList} />
     </Auth>
     
   </Switch>

@@ -155,7 +155,6 @@ export const resetPassword = (email) =>{
        }).catch(()=>{
          alert("パスワードリセットに失敗しました")
        })
-
     }
   }
 }

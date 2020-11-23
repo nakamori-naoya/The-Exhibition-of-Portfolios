@@ -14,19 +14,9 @@ const BoxTextInput = (props) => {
   return (
     <form className={classes.root} noValidate autoComplete="off">
       <TextField
-        id="outlined-secondary"
-        variant="outlined"
-        color="secondary"
-        fullWidth={props.fullWidth}
-        label={props.label}
-        margin="normal"
-        multiline={props.multiline}
-        rows={props.rows}
-        type={props.type} 
-        value={props.value}
-        required={props.required}
-        onChange={props.onChange}
-        placeholder={props.placeholder}
+        id="outlined-secondary"  variant="outlined"  color="secondary" margin="normal"
+        fullWidth={props.fullWidth}  label={props.label}  multiline={props.multiline} rows={props.rows}
+        type={props.type}  value={props.value} required={props.required} onChange={props.onChange} placeholder={props.placeholder}
       />
     </form>
   );
