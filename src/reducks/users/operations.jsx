@@ -1,6 +1,6 @@
 import { push } from 'connected-react-router';
 import {auth, FirebaseTimestamp, db } from '../../firebase/index';
-import {signInAction} from "./actions";
+import {signInAction, signOutAction} from "./actions";
 import firebase from "firebase/app"
 
 export const signUp  = (username, email, password, confirmPassword) => {
@@ -122,3 +122,18 @@ export const listenAuthState = () => {
 
   }
 }
+
+//sign outの際は、storeのuserのstateを初期化する必要がある
+export const signOut = () =>{
+  return async (dispatch) => {
+    auth.signOut()
+     .then(() =>{
+       dispatch(signOutAction());
+       dispatch(push("/signin"))
+     })
+  }
+} 
+
+
+
+
