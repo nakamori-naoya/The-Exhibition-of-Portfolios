@@ -9,11 +9,11 @@ const useStyles = makeStyles ({
     color: "#000",
     fontSize: 15,
     height: 48,
-    width: 256
+    width: 256,
   },
   icon: {
-    height: 48,
-    width: 48,
+    height: 40,
+    width: 40,
   }
 })
 
