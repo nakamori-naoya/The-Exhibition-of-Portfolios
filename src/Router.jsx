@@ -6,7 +6,7 @@ import Auth from './Auth';
 import { Home } from './Home';
 import { ResetPassword } from './templates/ResetPassword';
 import CardList from './templates/CardList';
-import { EditPortofolio } from './templates/EditPortofolio';
+import { EditPortofolio } from './templates/EditPortfolio';
 
 
 const Router = () => {
