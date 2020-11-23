@@ -41,13 +41,16 @@ export const signUp  = (username, email, password, confirmPassword) => {
 
 
 //Sign In   
+
+
 export const signIn = (email, password) => {
   return async (dispatch) => {
     if (email === "" || password === ""){
       alert("必須項目が未入力です")
       return false
      }
-
+    auth.setPersistence(firebase.auth.Auth.Persistence.SESSION)
+     .then(() =>{
      auth.signInWithEmailAndPassword(email,password)
      .then(result => {
        const user = result.user
@@ -67,12 +70,15 @@ export const signIn = (email, password) => {
          } )
        }
      })
+    })
   }
 }
 
 export const signInWithGoogle = () => {
   return async (dispatch) => {
   const provider = new firebase.auth.GoogleAuthProvider()
+  auth.setPersistence(firebase.auth.Auth.Persistence.SESSION)
+  .then(() =>{
   auth.signInWithPopup(provider)
      .then(result => {
           const user = result.user
@@ -94,7 +100,9 @@ export const signInWithGoogle = () => {
                     .then(()=>{
                       dispatch(push("/"))
                     })
+                 
   }
+})
 })
 }}
 
@@ -133,6 +141,24 @@ export const signOut = () =>{
      })
   }
 } 
+
+export const resetPassword = (email) =>{
+  return async(dispatch)=> {
+    if(email === "") {
+      alert("必須項目が未入力です。")
+      return false
+    } else {
+      auth.sendPasswordResetEmail(email)
+       .then(()=>{
+         alert("入力されたメールアドレスにパスワードリセット用のメールを送りました")
+         dispatch(push("/signin"))
+       }).catch(()=>{
+         alert("パスワードリセットに失敗しました")
+       })
+
+    }
+  }
+}
 
 
 
