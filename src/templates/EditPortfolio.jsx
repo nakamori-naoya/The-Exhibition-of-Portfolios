@@ -71,10 +71,13 @@ export const EditPortofolio = () => {
          fullWidth={true} label={"今後の課題"} multiline={true} required={true}
          onChange={inputFutureIssue} rows={3} rowsMax={5} value={futureIssue} type={"text"} placeholder={"Firebaseでのクエリの投げ方がいまいち分からず、ユーザーが検索する際に・・・"}
          />
-        <LightBlueButton
-        label={"登録"}
-        onClick={()=>dispatch(savePortfolio(id, appName, appUrl, githubUrl, backgroudOfCreation, growth, futureIssue))}
-        />
+         <div className="center">
+          <div  className="module-spacer--small"/> 
+          <LightBlueButton
+          label={"登録"}
+          onClick={()=>dispatch(savePortfolio(id, appName, appUrl, githubUrl, backgroudOfCreation, growth, futureIssue))}
+          />
+        </div>
       </div>
     </section>
   )

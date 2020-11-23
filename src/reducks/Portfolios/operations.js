@@ -3,7 +3,7 @@ import { push } from 'connected-react-router';
 
 const portfolioRef = db.collection("portfolio")
 
-export const savePortfolio = (id,appName, appUrl, githubUrl, backgroudOfCreation, growth, futureIssue) => {
+export const savePortfolio = (id, appName, appUrl, githubUrl, backgroudOfCreation, growth, futureIssue) => {
   return async (dispatch) => {
     const timestamp = FirebaseTimestamp.now()
     const data ={
@@ -15,12 +15,13 @@ export const savePortfolio = (id,appName, appUrl, githubUrl, backgroudOfCreation
       futureIssue: futureIssue,
       updated_at: timestamp
     }
-   if(true){
+   if(id === ""){
      const ref = portfolioRef.doc();
      id = ref.id
      data.id = id;
      data.created_at = timestamp
    }
+   //doc(id)のidは引数で渡ってきたidではない！！ if文内で再代入されたidのこと！！
    return portfolioRef.doc(id).set(data, {merge: true})
       .then(()=>{
         dispatch(push("/"))
