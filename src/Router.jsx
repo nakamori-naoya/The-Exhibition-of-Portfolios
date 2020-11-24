@@ -7,6 +7,7 @@ import { Home } from './Home';
 import { ResetPassword } from './templates/ResetPassword';
 import CardList from './templates/CardList';
 import { EditPortofolio } from './templates/EditPortfolio';
+import { RaderPlot } from './components/RaderPlot';
 
 
 const Router = () => {
@@ -15,12 +16,14 @@ const Router = () => {
       <Route exact path={"/signup"} component={SignUp} />
       <Route exact path={"/signin"} component={SignIn} />
       <Route exact path={"/signin/reset"} component={ResetPassword} />
+      
+      
 
     <Auth>
       <Route exact path={'(/)?'} component={Home} />
       <Route exact path={'/list'} component={CardList} />
       <Route exact path={'/edit'} component={EditPortofolio} />
-
+      <Route exact path={"/rader"} component={RaderPlot} />
     </Auth>
     
   </Switch>
