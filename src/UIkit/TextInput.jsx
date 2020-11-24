@@ -14,6 +14,8 @@ const TextInput = (props) => {
    value={props.value}
    required={props.required}
    onChange={props.onChange}
+   placeholder={props.placeholder}
+   rowsMax={props.rowsMax}
    />
  )
 }
