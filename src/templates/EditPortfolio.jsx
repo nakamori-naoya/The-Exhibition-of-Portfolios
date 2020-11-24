@@ -5,9 +5,11 @@ import { useState, useCallback } from 'react';
 import LightBlueButton from '../UIkit/LightBlueButton';
 import { useDispatch , useSelector} from 'react-redux';
 import { savePortfolio } from '../reducks/Portfolios/operations';
+import { RaderPlot } from '../components/RaderPlot';
 
 
 export const EditPortofolio = () => {
+  
   let id = window.location.pathname.split('/product/edit')[1];
     if (id !== "") {
         id = id.split('/')[1]
@@ -85,6 +87,7 @@ export const EditPortofolio = () => {
           />
         </div>
       </div>
+      <RaderPlot></RaderPlot>
     </section>
   )
 }
