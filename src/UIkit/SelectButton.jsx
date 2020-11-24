@@ -32,7 +32,7 @@ export const SelectButton = (props) => {
             <em>None</em>
           </MenuItem>
       {props.datas.map((data)=> (
-        <MenuItem value={data}>{data}</MenuItem>
+        <MenuItem value={data}>{data.toFixed(1)}</MenuItem>
       ))}
         </Select>
       <FormHelperText>{props.description}</FormHelperText>
