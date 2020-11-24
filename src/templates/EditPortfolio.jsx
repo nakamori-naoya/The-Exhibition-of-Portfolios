@@ -3,14 +3,14 @@ import BoxTextInput from '../UIkit/BoxTextInput';
 import TextInput from '../UIkit/TextInput';
 import { useState, useCallback } from 'react';
 import LightBlueButton from '../UIkit/LightBlueButton';
-import { useDispatch , useSelector} from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { savePortfolio } from '../reducks/Portfolios/operations';
-import { RaderPlot } from '../components/RaderPlot';
+
 
 
 export const EditPortofolio = () => {
-  
-  let id = window.location.pathname.split('/product/edit')[1];
+
+  let id = window.location.pathname.split('/edit')[1];
     if (id !== "") {
         id = id.split('/')[1]
    }
@@ -49,6 +49,17 @@ export const EditPortofolio = () => {
     setFutureIssue(event.target.value)
   }, [setFutureIssue]);
 
+  const categories = [
+    {id: "tops", name: "トップス"},
+    {id: "shirts", name: "シャツ"},
+    {id: "pants", name: "パンツ"},
+  ];
+  const genders = [
+    {id: "all", name: "全て"},
+    {id: "male", name: "メンズ"},
+    {id: "female", name: "レディース"},
+  ];
+  
 
 
   return (
@@ -87,7 +98,6 @@ export const EditPortofolio = () => {
           />
         </div>
       </div>
-      <RaderPlot></RaderPlot>
     </section>
   )
 }
