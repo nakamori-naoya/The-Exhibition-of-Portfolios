@@ -15,7 +15,9 @@ export const savePortfolio = (id, appName, appUrl, githubUrl, backgroudOfCreatio
       futureIssue: futureIssue,
       updated_at: timestamp
     }
-   if(id === ""){
+    
+    //今はtrueにしているが、本当はしっかり条件分岐させる必要がある！！
+   if(true){
      const ref = portfolioRef.doc();
      id = ref.id
      data.id = id;

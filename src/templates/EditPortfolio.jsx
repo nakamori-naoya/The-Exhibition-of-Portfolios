@@ -8,8 +8,13 @@ import { savePortfolio } from '../reducks/Portfolios/operations';
 
 
 export const EditPortofolio = () => {
+  let id = window.location.pathname.split('/product/edit')[1];
+    if (id !== "") {
+        id = id.split('/')[1]
+   }
+
   const dispatch = useDispatch(); 
-  const selector =  useSelector((state) => state);
+  
 
   const [appName, setAppName] = useState(""),
         [appUrl, setAppUrl] = useState(""),
@@ -42,7 +47,8 @@ export const EditPortofolio = () => {
     setFutureIssue(event.target.value)
   }, [setFutureIssue]);
 
-  let id = 1111
+
+
   return (
     <section>
       <h2 className="u-text__headline u-text-center" >アプリを出展</h2>
