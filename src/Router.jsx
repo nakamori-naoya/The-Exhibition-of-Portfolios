@@ -8,6 +8,8 @@ import { ResetPassword } from './templates/ResetPassword';
 import CardList from './templates/CardList';
 import { EditPortofolio } from './templates/EditPortfolio';
 import { RaderPlot } from './components/RaderPlot';
+import { Test } from './Test';
+
 
 
 const Router = () => {
@@ -16,6 +18,7 @@ const Router = () => {
       <Route exact path={"/signup"} component={SignUp} />
       <Route exact path={"/signin"} component={SignIn} />
       <Route exact path={"/signin/reset"} component={ResetPassword} />
+      <Route exact path={"/test"} component={Test} />
       
       
 

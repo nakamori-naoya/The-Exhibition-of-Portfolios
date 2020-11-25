@@ -87,6 +87,7 @@ export const signInWithGoogle = () => {
                  const username = user.displayName;
                  const email = user.email;
                  const timestamp = FirebaseTimestamp.now();
+                 
                  const userInitialData ={
                   created_at: timestamp,
                   email: email,
