@@ -12,13 +12,15 @@ export const Test = () => {
 
   const  selectUsability  = useCallback((event) => {
     setUsability(event.target.value)
-    setPoints([event.target.value,businessOriented, sociality ])
+    return setPoints([event.target.value, businessOriented, sociality])
   }, [setUsability]);
 
   const  selectBusinessOriented  = useCallback((event) => {
     setBusinessOriented(event.target.value)
-    setPoints([usability, event.target.value, sociality ])
+    return setPoints([usability, event.target.value, sociality])
   }, [setBusinessOriented]);
+
+ 
 
   // const  selectBusinessOriented  = useCallback((event) => {
   //   setBusinessOriented(event.target.value)
