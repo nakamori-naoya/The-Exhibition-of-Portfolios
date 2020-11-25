@@ -59,13 +59,14 @@ export const RaderPlot = () => {
   return (
     <div  className={classes.size} >
       <Radar data={data}  options={options}/>
-
+       <div className="c-content-display">
       <SelectButton
       label={"Usabilitly"} value={usability} onChange={selectUsability} 
       datas={[1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0]} description={"使いやすさを教えてください"}   />
       <SelectButton
       label={"Usabilitly"} value={usability} onChange={selectUsability} 
       datas={[1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0]} description={"使いやすさを教えてください"}   />
+      </div>
     </div>
   )
 }

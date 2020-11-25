@@ -29,6 +29,10 @@
   width: calc(100% - 2rem);
 }
 
+.c-content-display {
+  display: flex;
+}
+
 /* Utilityゾーン */
 .u-text__headline {
   color: #000000;
