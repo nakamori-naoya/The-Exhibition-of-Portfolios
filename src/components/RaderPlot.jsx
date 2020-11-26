@@ -21,8 +21,6 @@ size:{
 export const RaderPlot = (props) => {
   const classes = useStyles()
 
-  const selfEval = props.points
-
 const datas = {
   labels: [
     "Usability",
@@ -38,7 +36,7 @@ const datas = {
     borderColor: "#008b8b",
     pointBackgroundColor:  "#008b8b",
     pointBorderColor: "#fff",
-    data: selfEval
+    data: props.sPoints
   },
 
   {
@@ -47,7 +45,7 @@ const datas = {
     borderColor: "#ff1493",
     pointBackgroundColor:  "f1493",
     pointBorderColor: "#fff",
-    data: [3, 3, 5, 2, 4, 3]
+    data: props.uPoints
   }
 ]
 }

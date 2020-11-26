@@ -32,7 +32,7 @@ export const Home = () => {
          portfolios.map(portfolio => (
           <div>
            <RaderPlot
-           points={portfolio.selfEval}
+           sPoints={portfolio.selfEval} uPoints={portfolio.selfEval} 
            />
            <PortfolioCard 
              key={portfolio.id} id={portfolio.id}  name={portfolio.name}
