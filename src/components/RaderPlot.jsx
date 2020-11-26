@@ -21,9 +21,7 @@ size:{
 export const RaderPlot = (props) => {
   const classes = useStyles()
 
-
-  let selfEval = []
-  selfEval = props.points
+  const selfEval = props.points
 
 const datas = {
   labels: [
