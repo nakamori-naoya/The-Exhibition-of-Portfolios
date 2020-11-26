@@ -5,19 +5,19 @@ import { RaderPlot } from './components/RaderPlot';
 export const Test = () => {
   const [usability, setUsability] = useState(0);
   const [businessOriented, setBusinessOriented] = useState(0);
-  const [sociality, setSociality] = useState(0);
+  //const [sociality, setSociality] = useState(0);
 
-  const [points, setPoints] = useState([usability, businessOriented, sociality])
+  const [points, setPoints] = useState([usability, businessOriented])
 
 
   const  selectUsability  = useCallback((event) => {
     setUsability(event.target.value)
-    return setPoints([event.target.value, businessOriented, sociality])
+    return setPoints([event.target.value, businessOriented])
   }, [setUsability]);
 
   const  selectBusinessOriented  = useCallback((event) => {
     setBusinessOriented(event.target.value)
-    return setPoints([usability, event.target.value, sociality])
+    return setPoints([usability, event.target.value])
   }, [setBusinessOriented]);
 
  
