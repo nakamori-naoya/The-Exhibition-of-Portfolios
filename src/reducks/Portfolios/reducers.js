@@ -3,7 +3,7 @@ import {initialState} from '../store/initialState';
 
 export const PortfoliosReducer = (state = initialState.portfolios, action)  => {
   switch (action.type) {
-      case Actions.FETCH_PRODUCTS:
+      case Actions.FETCH_PORTFOLIOS:
           return {
               ...state,
               list: action.payload

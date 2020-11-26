@@ -37,7 +37,7 @@ export const savePortfolio = (id, appName, appUrl, githubUrl, backgroudOfCreatio
 
 
 //取得
-export const fetchProducts = () => {
+export const fetchPortfolios = () => {
   return async (dispatch) => {
     db.collection("portfolio").orderBy("updated_at", "desc").get()
        .then(snapshots => {
