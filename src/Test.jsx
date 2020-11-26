@@ -47,7 +47,6 @@ export const Test = () => {
        onClick = {() => setPoints(usability, businessOriented, sociality)} 
        label={"登録"}
       />
-      {console.log(setPoints)}
       <RaderPlot points={points}/>
       </div>
     </div>
