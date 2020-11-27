@@ -67,7 +67,6 @@ const useStyles = makeStyles((theme) => ({
  export const PortfolioCard = (props) => {
     const classes = useStyles();
     const dispatch = useDispatch()
-    const selector = useSelector(state => state);
     // const images = (props.images.length > 0) ? props.images : [NoImage]
 
     const [anchorEl, setAnchorEl] = React.useState(null);
