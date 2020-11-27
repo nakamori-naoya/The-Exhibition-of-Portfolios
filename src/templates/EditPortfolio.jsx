@@ -3,12 +3,15 @@ import BoxTextInput from '../UIkit/BoxTextInput';
 import TextInput from '../UIkit/TextInput';
 import { useState, useCallback } from 'react';
 import LightBlueButton from '../UIkit/LightBlueButton';
-import { useDispatch , useSelector} from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { savePortfolio } from '../reducks/Portfolios/operations';
+import { SelectButton } from '../UIkit/SelectButton';
+
 
 
 export const EditPortofolio = () => {
-  let id = window.location.pathname.split('/product/edit')[1];
+
+  let id = window.location.pathname.split('/edit')[1];
     if (id !== "") {
         id = id.split('/')[1]
    }
@@ -47,6 +50,33 @@ export const EditPortofolio = () => {
     setFutureIssue(event.target.value)
   }, [setFutureIssue]);
 
+  const categories = [
+    {id: "tops", name: "トップス"},
+    {id: "shirts", name: "シャツ"},
+    {id: "pants", name: "パンツ"},
+  ];
+  const genders = [
+    {id: "all", name: "全て"},
+    {id: "male", name: "メンズ"},
+    {id: "female", name: "レディース"},
+  ];
+
+  const [usability, setUsability] = useState(0);
+  const [businessOriented, setBusinessOriented] = useState(0);
+  const [sociality, setSociality] = useState(0);
+
+  const  selectUsability  = useCallback((event) => {
+    setUsability(event.target.value)
+  }, [setUsability]);
+
+  const  selectBusinessOriented  = useCallback((event) => {
+    setBusinessOriented(event.target.value)
+  }, [setBusinessOriented]);
+
+  const  selectSociality  = useCallback((event) => {
+    setSociality(event.target.value)
+  }, [setSociality]);
+  
 
 
   return (
@@ -77,11 +107,23 @@ export const EditPortofolio = () => {
          fullWidth={true} label={"今後の課題"} multiline={true} required={true}
          onChange={inputFutureIssue} rows={3} rowsMax={5} value={futureIssue} type={"text"} placeholder={"Firebaseでのクエリの投げ方がいまいち分からず、ユーザーが検索する際に・・・"}
          />
-         <div className="center">
-          <div  className="module-spacer--small"/> 
+         <div className="c-content-display">
+      <SelectButton
+      label={"Usabilitly"} value={usability} onChange={selectUsability} 
+      datas={[1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0]} description={"使いやすさを教えてください"}   />
+      <SelectButton
+      label={"BusinessOriented"} value={businessOriented} onChange={selectBusinessOriented} 
+      datas={[1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0]} description={"ビジネス性"}   />
+      <SelectButton
+      label={"社会性"} value={sociality} onChange={selectSociality} 
+      datas={[1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0]} description={"使いやすさを教えてください"}   />
+      </div>
+
+      <div className="center">
+        <div  className="module-spacer--small"/> 
           <LightBlueButton
           label={"登録"}
-          onClick={()=>dispatch(savePortfolio(id, appName, appUrl, githubUrl, backgroudOfCreation, growth, futureIssue))}
+          onClick={()=>dispatch(savePortfolio(id, appName, appUrl, githubUrl, backgroudOfCreation, growth, futureIssue, usability, businessOriented, sociality))}
           />
         </div>
       </div>

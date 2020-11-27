@@ -1,4 +1,7 @@
 export const initialState = {
+  portfolios :{
+      list: []
+  },
   users: {
       isSignedIn: false,
       role: "",
