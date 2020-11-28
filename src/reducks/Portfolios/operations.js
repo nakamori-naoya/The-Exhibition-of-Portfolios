@@ -14,7 +14,9 @@ export const savePortfolio = (id, appName, appUrl, githubUrl, backgroudOfCreatio
       growth: growth,
       futureIssue: futureIssue,
       updated_at: timestamp,
-      selfEval: [usability, businessOriented, sociality]
+      usability: usability, 
+      businessOriented: businessOriented, 
+      sociality: sociality
     }
 
     //今はtrueにしているが、本当はしっかり条件分岐させる必要がある！！
