@@ -23,9 +23,9 @@ export const RaderPlot = (props) => {
 
 const datas = {
   labels: [
-    "Usability",
-    "Functions",
-    "Design",
+    "ユーザーエクスペリエンス",
+    "ビジネス生",
+    "社会性",
     "Business-oriented",
     "課題解決",
     "満足度"

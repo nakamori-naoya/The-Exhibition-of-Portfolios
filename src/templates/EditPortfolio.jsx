@@ -97,11 +97,11 @@ export const EditPortofolio = () => {
          />
          <TextInput
          fullWidth={true} label={"作成の動機"} multiline={true} required={true} 
-         onChange={inputBackgroudOfCreation} rows={3} rowsMax={5} value={backgroudOfCreation} type={"text"} placeholder={"中学生向けの英語教材に音声読み上げ機能がついていないことに以前から・・・"}
+         onChange={inputBackgroudOfCreation} rows={3} rowsMax={5} value={backgroudOfCreation} type={"text"} placeholder={"あなたがなぜこのアプリを作成したのかをご記入ください。"}
          />
          <TextInput
-         fullWidth={true} label={"成長した点"} multiline={true} required={true}
-         onChange={inputGrowth} rows={3} rowsMax={5} value={growth} type={"text"} placeholder={"前回作成したアプリで実装できなかった○○の実装をすることができた"}
+         fullWidth={true} label={"ここに注目"} multiline={true} required={true}
+         onChange={inputGrowth} rows={3} rowsMax={5} value={growth} type={"text"} placeholder={"あなたがこのアプリの特にここ見て欲しいという部分をご記入ください"}
          />
          <TextInput
          fullWidth={true} label={"今後の課題"} multiline={true} required={true}
@@ -115,7 +115,7 @@ export const EditPortofolio = () => {
       label={"BusinessOriented"} value={businessOriented} onChange={selectBusinessOriented} 
       datas={[1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0]} description={"ビジネス性"}   />
       <SelectButton
-      label={"社会性"} value={sociality} onChange={selectSociality} 
+      label={"sociality"} value={sociality} onChange={selectSociality} 
       datas={[1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0]} description={"使いやすさを教えてください"}   />
       </div>
 

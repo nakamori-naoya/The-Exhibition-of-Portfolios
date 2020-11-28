@@ -31,13 +31,11 @@ export const Home = () => {
          {portfolios.length > 0  && (
          portfolios.map(portfolio => (
           <div>
-             
            <RaderPlot
            usability={portfolio.usability} businessOriented={portfolio.businessOriented} sociality={portfolio.sociality}
            />
            <PortfolioCard 
              key={portfolio.id} id={portfolio.id}  appName={portfolio.appName}
-
            />
          </div>
          ))
