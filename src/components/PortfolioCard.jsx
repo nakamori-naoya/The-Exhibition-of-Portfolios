@@ -87,6 +87,7 @@ const useStyles = makeStyles((theme) => ({
                 onClick={() => dispatch(push('/portfolio/'+props.id))}
                 title=""
             />
+            
             <CardContent className={classes.content} >
                 <div onClick={() => dispatch(push('/portfolio/'+props.id))}>
                     <Typography className={classes.portfolioName} color="textPrimary" component="p">
