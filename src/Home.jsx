@@ -34,7 +34,6 @@ export const Home = () => {
              
            <RaderPlot
            usability={portfolio.usability} businessOriented={portfolio.businessOriented} sociality={portfolio.sociality}
-           averageUsbility={average}
            />
            <PortfolioCard 
              key={portfolio.id} id={portfolio.id}  appName={portfolio.appName}
