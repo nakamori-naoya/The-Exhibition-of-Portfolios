@@ -11,11 +11,6 @@ import { RaderPlot } from './components/RaderPlot';
 
 
 const useStyles = makeStyles(() => ({
-  sliderBox:{
-          margin: '0 auto',
-          height: 400,
-          width: 400
-      },
   detail: {
       textAlign: 'left',
 
@@ -56,11 +51,9 @@ const PortfolioDetail = () => {
  return (
    <>
             {portfolio && (
-              <Grid container >
-                <Grid c item xs={4} >
-                    <div className={classes.sliderBox}>
+              <Grid container spacing={5}>
+                <Grid  item xs={4} >              
                        <ImageSwiper images={portfolio.images}/>
-                    </div>
                 </Grid>    
                 <Grid  item xs={4} >
                     <div className={classes.detail}>
@@ -73,7 +66,7 @@ const PortfolioDetail = () => {
                        <a href={portfolio.githubUrl} className={classes.linkDecoration}>
                         <GitHubIcon className={classes.icon}/>
                        </a>
-
+                       <div  className='module-spacer--small' />
                        <RaderPlot/>
                     </div>
                 </Grid>
