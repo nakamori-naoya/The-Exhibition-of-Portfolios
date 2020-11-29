@@ -21,6 +21,10 @@ const useStyles = makeStyles(() => ({
           width: 320
 
       },
+  icon: {
+    height: 48,
+    width: 48
+  }
 }))
 
 
@@ -45,11 +49,6 @@ const PortfolioDetail = () => {
   },[])
 
 
-  const jumpGithub = (portfolio) =>{
-     let url = portfolio.githubUrl.split("/https")[0];
-     dispatch(push(url))
-  }
-
  return (
    <>
             {portfolio && (
@@ -59,16 +58,15 @@ const PortfolioDetail = () => {
                        <ImageSwiper images={portfolio.images}/>
                     </div>
                 </Grid>    
-                <Grid container item xs={4} spacing={1}>
+                <Grid container item xs={4} spacing={3}>
                     <div className={classes.detail}>
                         <h2 className="u-text__headline">{portfolio.appName}</h2>
                         <a href={portfolio.appUrl}>アプリはこちら</a>
                         <div className="module-spacer--small"/>
                        
-                        <IconButton onClick={jumpGithub}>
-                          <GitHubIcon>
-                          </GitHubIcon>
-                        </IconButton>
+                       <a href={portfolio.githubUrl}>
+                          <GitHubIcon className={classes.icon}/>
+                       </a>
                        
                     </div>
                 </Grid>
