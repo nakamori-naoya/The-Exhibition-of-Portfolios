@@ -53,3 +53,13 @@ export const fetchPortfolios = () => {
   }
 }
 
+
+// export const evalPortfolio = (id) => {
+//   return async (dispatch) => {
+//     db.collection("portfolio").doc(id)
+//      .then(snapshot => {
+//        const data = snapshot.data()
+       
+//      })
+//   }
+// }
