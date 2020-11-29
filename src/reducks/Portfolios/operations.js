@@ -3,7 +3,7 @@ import { push } from 'connected-react-router';
 import { fetchPortfoliosAction } from './actions';
 
 
-export const savePortfolio = (id, appName, appUrl, githubUrl, backgroudOfCreation, growth, futureIssue, usability, businessOriented, sociality) => {
+export const savePortfolio = (id, appName, appUrl, githubUrl, backgroudOfCreation, growth, futureIssue, usability, businessOriented, sociality, images) => {
   return async (dispatch) => {
     const timestamp = FirebaseTimestamp.now()
     const data ={
@@ -14,7 +14,10 @@ export const savePortfolio = (id, appName, appUrl, githubUrl, backgroudOfCreatio
       growth: growth,
       futureIssue: futureIssue,
       updated_at: timestamp,
-      selfEval: [usability, businessOriented, sociality]
+      usability: usability, 
+      businessOriented: businessOriented, 
+      sociality: sociality,
+      images: images
     }
 
     //今はtrueにしているが、本当はしっかり条件分岐させる必要がある！！
@@ -50,3 +53,14 @@ export const fetchPortfolios = () => {
        })
   }
 }
+
+
+// export const evalPortfolio = (id) => {
+//   return async (dispatch) => {
+//     db.collection("portfolio").doc(id)
+//      .then(snapshot => {
+//        const data = snapshot.data()
+       
+//      })
+//   }
+// }

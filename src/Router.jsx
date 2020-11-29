@@ -5,10 +5,10 @@ import SignIn from './templates/SignIn';
 import Auth from './Auth';
 import { Home } from './Home';
 import { ResetPassword } from './templates/ResetPassword';
-import CardList from './templates/CardList';
 import { EditPortofolio } from './templates/EditPortfolio';
-import { RaderPlot } from './components/RaderPlot';
 import { Test } from './Test';
+import { RaderPlot } from './templates/components/RaderPlot';
+import { PortfolioDetail } from './templates/PortfolioDetail';
 
 
 
@@ -21,11 +21,10 @@ const Router = () => {
       <Route exact path={"/test"} component={Test} />
       
       
-
     <Auth>
       <Route exact path={'(/)?'} component={Home} />
-      <Route exact path={'/list'} component={CardList} />
       <Route exact path={'/edit'} component={EditPortofolio} />
+      <Route exact path="/product/:id"  component={PortfolioDetail} />
       <Route exact path={"/rader"} component={RaderPlot} />
     </Auth>
     

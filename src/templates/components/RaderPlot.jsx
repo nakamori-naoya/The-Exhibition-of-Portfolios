@@ -23,9 +23,9 @@ export const RaderPlot = (props) => {
 
 const datas = {
   labels: [
-    "Usability",
-    "Functions",
-    "Design",
+    "ユーザーエクスペリエンス",
+    "ビジネス生",
+    "社会性",
     "Business-oriented",
     "課題解決",
     "満足度"
@@ -36,7 +36,7 @@ const datas = {
     borderColor: "#008b8b",
     pointBackgroundColor:  "#008b8b",
     pointBorderColor: "#fff",
-    data: props.sPoints
+    data: [props.usability, props.businessOriented, props.sociality]
   },
 
   {
@@ -45,7 +45,7 @@ const datas = {
     borderColor: "#ff1493",
     pointBackgroundColor:  "f1493",
     pointBorderColor: "#fff",
-    data: props.uPoints
+    data: [1,2,2]
   }
 ]
 }

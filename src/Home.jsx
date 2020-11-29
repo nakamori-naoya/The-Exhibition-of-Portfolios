@@ -5,9 +5,8 @@ import { signOut } from './reducks/users/operations';
 import BoxTextInput from './UIkit/BoxTextInput';
 import { fetchPortfolios } from './reducks/Portfolios/operations';
 import { getProducts } from './reducks/Portfolios/selector';
-import { PortfolioCard } from './components/PortfolioCard';
-import { RadioRounded } from '@material-ui/icons';
-import { RaderPlot } from './components/RaderPlot';
+import { PortfolioCard } from './templates/components/PortfolioCard';
+import { RaderPlot } from './templates/components/RaderPlot';
 
 export const Home = () => {
   const dispatch = useDispatch();
@@ -28,18 +27,16 @@ export const Home = () => {
        <BoxTextInput
        label={"メールアドレス"}/>
 
+        <div className="p-grid__row">
          {portfolios.length > 0  && (
          portfolios.map(portfolio => (
-          <div>
-           <RaderPlot
-           sPoints={portfolio.selfEval} uPoints={portfolio.selfEval} 
+           <PortfolioCard
+             key={portfolio.id} id={portfolio.id}  appName={portfolio.appName}
+             images={portfolio.images}
            />
-           <PortfolioCard 
-             key={portfolio.id} id={portfolio.id}  name={portfolio.name}
-           />
-         </div>
          ))
        )}   
+      </div>
     </div>
   )
 }
