@@ -51,14 +51,11 @@ const ImageArea = (props) => {
   }
 }, [images])
 
-
-
-
    return (
     <div>
       <div className="p-grid__list-images" >
         {images.length > 0 && (
-          images.map(image => <ImagePreview delete={deleteImage} path={image.path} key={image.id} id={image.id} />)
+          images.map(image => <ImagePreview deleteImage={deleteImage} path={image.path} key={image.id} id={image.id} />)
         )}
       </div>    
         <div className="u-text-right" >

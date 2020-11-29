@@ -7,8 +7,8 @@ import { Home } from './Home';
 import { ResetPassword } from './templates/ResetPassword';
 import CardList from './templates/CardList';
 import { EditPortofolio } from './templates/EditPortfolio';
-import { RaderPlot } from './components/RaderPlot';
 import { Test } from './Test';
+import { RaderPlot } from './templates/components/RaderPlot';
 
 
 

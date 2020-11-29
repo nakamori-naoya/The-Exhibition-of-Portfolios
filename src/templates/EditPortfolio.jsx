@@ -6,6 +6,7 @@ import LightBlueButton from '../UIkit/LightBlueButton';
 import { useDispatch } from 'react-redux';
 import { savePortfolio } from '../reducks/Portfolios/operations';
 import { SelectButton } from '../UIkit/SelectButton';
+import ImageArea from './components/ImageArea';
 
 
 
@@ -73,7 +74,7 @@ export const EditPortofolio = () => {
       <h2 className="u-text__headline u-text-center" >アプリを出展</h2>
       <div className="c-section-container">
         <ImageArea images={images} setImages={setImages} />
-        
+
          <BoxTextInput
          fullWidth={true} label={"アプリ名"} multiline={false} required={true} 
          onChange={inputAppName} rows={1} value={appName} type={"text"} placeholder={"Education-Bridge"}

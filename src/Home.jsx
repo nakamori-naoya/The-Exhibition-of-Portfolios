@@ -5,9 +5,8 @@ import { signOut } from './reducks/users/operations';
 import BoxTextInput from './UIkit/BoxTextInput';
 import { fetchPortfolios } from './reducks/Portfolios/operations';
 import { getProducts } from './reducks/Portfolios/selector';
-import { PortfolioCard } from './components/PortfolioCard';
-import { RadioRounded } from '@material-ui/icons';
-import { RaderPlot } from './components/RaderPlot';
+import { PortfolioCard } from './templates/components/PortfolioCard';
+import { RaderPlot } from './templates/components/RaderPlot';
 
 export const Home = () => {
   const dispatch = useDispatch();
@@ -34,7 +33,7 @@ export const Home = () => {
            <RaderPlot
            usability={portfolio.usability} businessOriented={portfolio.businessOriented} sociality={portfolio.sociality}
            />
-           <PortfolioCard 
+           <PortfolioCard
              key={portfolio.id} id={portfolio.id}  appName={portfolio.appName}
            />
          </div>
