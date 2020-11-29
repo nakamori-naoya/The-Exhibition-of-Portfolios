@@ -75,7 +75,7 @@ export const EditPortofolio = () => {
       <div className="c-section-container">
 
         <ImageArea images={images} setImages={setImages} />
-        
+
          <BoxTextInput
          fullWidth={true} label={"アプリ名"} multiline={false} required={true} 
          onChange={inputAppName} rows={1} value={appName} type={"text"} placeholder={"Education-Bridge"}
@@ -116,7 +116,7 @@ export const EditPortofolio = () => {
         <div  className="module-spacer--small"/> 
           <LightBlueButton
           label={"登録"}
-          onClick={()=>dispatch(savePortfolio(id, appName, appUrl, githubUrl, backgroudOfCreation, growth, futureIssue, usability, businessOriented, sociality))}
+          onClick={()=>dispatch(savePortfolio(id, appName, appUrl, githubUrl, backgroudOfCreation, growth, futureIssue, usability, businessOriented, sociality, images))}
           />
         </div>
       </div>

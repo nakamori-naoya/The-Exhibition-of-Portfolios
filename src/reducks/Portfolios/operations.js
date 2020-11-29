@@ -3,7 +3,7 @@ import { push } from 'connected-react-router';
 import { fetchPortfoliosAction } from './actions';
 
 
-export const savePortfolio = (id, appName, appUrl, githubUrl, backgroudOfCreation, growth, futureIssue, usability, businessOriented, sociality) => {
+export const savePortfolio = (id, appName, appUrl, githubUrl, backgroudOfCreation, growth, futureIssue, usability, businessOriented, sociality, images) => {
   return async (dispatch) => {
     const timestamp = FirebaseTimestamp.now()
     const data ={
@@ -16,7 +16,8 @@ export const savePortfolio = (id, appName, appUrl, githubUrl, backgroudOfCreatio
       updated_at: timestamp,
       usability: usability, 
       businessOriented: businessOriented, 
-      sociality: sociality
+      sociality: sociality,
+      images: images
     }
 
     //今はtrueにしているが、本当はしっかり条件分岐させる必要がある！！
