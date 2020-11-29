@@ -4,6 +4,7 @@ import {db, FirebaseTimestamp} from "../firebase/index"
 import { makeStyles } from '@material-ui/styles';
 import { useDispatch } from 'react-redux';
 import { ImageSwiper } from './components/ImageSwiper';
+import { Grid } from '@material-ui/core';
 
 
 const useStyles = makeStyles(() => ({
@@ -34,7 +35,6 @@ const PortfolioDetail = () => {
 
   const [portfolio, setPortfolio] = useState(null);
 
-
   useEffect(() => {
       db.collection('portfolio').doc(id).get()
           .then(doc => {
@@ -47,16 +47,23 @@ const PortfolioDetail = () => {
  return (
    <>
             {portfolio && (
-                <div className="p-grid__row">
+              <Grid container spacing={3}>
+                <Grid container item xs={4} spacing={1}>
                     <div className={classes.sliderBox}>
                        <ImageSwiper images={portfolio.images}/>
                     </div>
+                </Grid>    
+                <Grid container item xs={4} spacing={1}>
                     <div className={classes.detail}>
                         <h2 className="u-text__headline">{portfolio.appName}</h2>
-                        <a src={portfolio.appUrl}>aaa</a>
+                        <a href={portfolio.appUrl}>アプリはこちらから</a>
                         <div className="module-spacer--small"/>
+                        <a href={portfolio.githubUrl}>アプリはこちらから</a>
                     </div>
-                </div>
+                </Grid>
+
+
+             </Grid>  
             )}
   </>
  )
