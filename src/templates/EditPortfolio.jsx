@@ -24,7 +24,8 @@ export const EditPortofolio = () => {
         [githubUrl, setGithubUrl] = useState(""),
         [backgroudOfCreation, setBackgroudOfCreation] = useState(""),
         [growth, setGrowth] = useState(""),
-        [futureIssue, setFutureIssue] = useState("");
+        [futureIssue, setFutureIssue] = useState(""),
+        [images, setImages] = useState([])
 
   const  inputAppName  = useCallback((event) => {
     setAppName(event.target.value)
@@ -50,17 +51,6 @@ export const EditPortofolio = () => {
     setFutureIssue(event.target.value)
   }, [setFutureIssue]);
 
-  const categories = [
-    {id: "tops", name: "トップス"},
-    {id: "shirts", name: "シャツ"},
-    {id: "pants", name: "パンツ"},
-  ];
-  const genders = [
-    {id: "all", name: "全て"},
-    {id: "male", name: "メンズ"},
-    {id: "female", name: "レディース"},
-  ];
-
   const [usability, setUsability] = useState(0);
   const [businessOriented, setBusinessOriented] = useState(0);
   const [sociality, setSociality] = useState(0);
@@ -78,11 +68,12 @@ export const EditPortofolio = () => {
   }, [setSociality]);
   
 
-
   return (
     <section>
       <h2 className="u-text__headline u-text-center" >アプリを出展</h2>
       <div className="c-section-container">
+        <ImageArea images={images} setImages={setImages} />
+        
          <BoxTextInput
          fullWidth={true} label={"アプリ名"} multiline={false} required={true} 
          onChange={inputAppName} rows={1} value={appName} type={"text"} placeholder={"Education-Bridge"}

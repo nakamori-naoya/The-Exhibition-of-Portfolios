@@ -3,7 +3,8 @@ import Swiper from "react-id-swiper"
 import "swiper/css/swiper.css"
 import google from '../assets/img/google.png'; 
 
-//https://react-id-swiper.ashernguyen.site/doc/get-started
+//         https://react-id-swiper.ashernguyen.site/doc/get-started
+//サンプル： https://react-id-swiper.ashernguyen.site/example/three-d-flip-effect
 
 export const ImageSwiper = (props) => {
     const params = {
