@@ -5,7 +5,9 @@ import { makeStyles } from '@material-ui/styles';
 import { ImageSwiper } from './components/ImageSwiper';
 import {Grid, IconButton } from '@material-ui/core';
 import GitHubIcon from '@material-ui/icons/GitHub';
-import {push } from 'connected-react-router';
+import DesktopMacIcon from '@material-ui/icons/DesktopMac';
+import { RaderPlot } from './components/RaderPlot';
+
 
 
 const useStyles = makeStyles(() => ({
@@ -16,15 +18,17 @@ const useStyles = makeStyles(() => ({
       },
   detail: {
       textAlign: 'left',
-          margin: '0 auto 16px auto',
-          height: 320,
-          width: 320
 
       },
   icon: {
-    height: 48,
-    width: 48
-  }
+    height: 96,
+    width: 96,
+    marginRight: 48
+  },
+  linkDecoration:{
+     color: "inherit"
+  },
+
 }))
 
 
@@ -52,22 +56,25 @@ const PortfolioDetail = () => {
  return (
    <>
             {portfolio && (
-              <Grid container spacing={3}>
-                <Grid container item xs={4} spacing={1}>
+              <Grid container >
+                <Grid c item xs={4} >
                     <div className={classes.sliderBox}>
                        <ImageSwiper images={portfolio.images}/>
                     </div>
                 </Grid>    
-                <Grid container item xs={4} spacing={3}>
+                <Grid  item xs={4} >
                     <div className={classes.detail}>
                         <h2 className="u-text__headline">{portfolio.appName}</h2>
-                        <a href={portfolio.appUrl}>アプリはこちら</a>
-                        <div className="module-spacer--small"/>
-                       
-                       <a href={portfolio.githubUrl}>
-                          <GitHubIcon className={classes.icon}/>
+
+                      <a href={portfolio.appUrl} className={classes.linkDecoration}>
+                       <DesktopMacIcon className={classes.icon}/>
+                      </a>
+
+                       <a href={portfolio.githubUrl} className={classes.linkDecoration}>
+                        <GitHubIcon className={classes.icon}/>
                        </a>
-                       
+
+                       <RaderPlot/>
                     </div>
                 </Grid>
 

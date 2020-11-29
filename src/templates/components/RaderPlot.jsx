@@ -14,7 +14,7 @@ const options = {
 
 const useStyles = makeStyles( {
 size:{
-  width: "600px"
+  width: "400px"
 }
 })  
 
