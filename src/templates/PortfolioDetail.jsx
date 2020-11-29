@@ -1,10 +1,11 @@
 import React, {useState, useEffect, useCallback} from 'react';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import {db, FirebaseTimestamp} from "../firebase/index"
 import { makeStyles } from '@material-ui/styles';
-import { useDispatch } from 'react-redux';
 import { ImageSwiper } from './components/ImageSwiper';
-import { Grid } from '@material-ui/core';
+import {Grid, IconButton } from '@material-ui/core';
+import GitHubIcon from '@material-ui/icons/GitHub';
+import {push } from 'connected-react-router';
 
 
 const useStyles = makeStyles(() => ({
@@ -26,7 +27,7 @@ const useStyles = makeStyles(() => ({
 
 
 const PortfolioDetail = () => {
-
+  const dispatch = useDispatch(); 
   const classes = useStyles()
   const selector = useSelector((state) => state)
   const path = selector.router.location.pathname
@@ -44,6 +45,11 @@ const PortfolioDetail = () => {
   },[])
 
 
+  const jumpGithub = (portfolio) =>{
+     let url = portfolio.githubUrl.split("/https")[0];
+     dispatch(push(url))
+  }
+
  return (
    <>
             {portfolio && (
@@ -56,9 +62,14 @@ const PortfolioDetail = () => {
                 <Grid container item xs={4} spacing={1}>
                     <div className={classes.detail}>
                         <h2 className="u-text__headline">{portfolio.appName}</h2>
-                        <a href={portfolio.appUrl}>アプリはこちらから</a>
+                        <a href={portfolio.appUrl}>アプリはこちら</a>
                         <div className="module-spacer--small"/>
-                        <a href={portfolio.githubUrl}>アプリはこちらから</a>
+                       
+                        <IconButton onClick={jumpGithub}>
+                          <GitHubIcon>
+                          </GitHubIcon>
+                        </IconButton>
+                       
                     </div>
                 </Grid>
 
