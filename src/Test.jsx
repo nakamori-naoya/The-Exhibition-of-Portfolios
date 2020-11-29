@@ -1,7 +1,7 @@
 import React, {useState, useCallback} from 'react'
 import { SelectButton } from './UIkit/SelectButton';
-import { RaderPlot } from './components/RaderPlot';
 import LightBlueButton from './UIkit/LightBlueButton';
+import { RaderPlot } from './templates/components/RaderPlot';
 
 export const Test = () => {
   const [usability, setUsability] = useState(0);

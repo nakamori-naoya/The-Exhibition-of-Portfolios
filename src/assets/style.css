@@ -44,10 +44,44 @@
   text-align: center;
 }
 
+.u-text-right {
+  text-align: right;
+}
+
+.u-display-none {
+  display: none;
+}
+
 /* Projectゾーン */
+
+.p-grid__list-images {
+  display: flex;
+  flex-flow: wrap;
+}
 
 .p-media__thumb {
   position: relative;
   overflow: hidden;
   width: 100%;
+}
+
+.p-media__thumb::before {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+
+.p-media__thumb > img {
+  position: absolute;
+  object-fit: cover;
+  object-position: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+}
+
+.p-grid__row {
+  display: flex;
+  flex-flow: row wrap;
 }
