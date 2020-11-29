@@ -32,6 +32,7 @@ export const Home = () => {
          portfolios.map(portfolio => (
            <PortfolioCard
              key={portfolio.id} id={portfolio.id}  appName={portfolio.appName}
+             images={portfolio.images}
            />
          ))
        )}   

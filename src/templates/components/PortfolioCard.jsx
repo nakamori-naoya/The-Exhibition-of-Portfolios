@@ -5,7 +5,7 @@ import Card from '@material-ui/core/Card';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
-// import NoImage from '../../assets/img/src/no_image.png'
+import google from '../../assets/img/google.png'
 import {useDispatch, useSelector} from "react-redux";
 import IconButton from "@material-ui/core/IconButton";
 import MoreVertIcon from '@material-ui/icons/MoreVert';
@@ -41,11 +41,6 @@ const useStyles = makeStyles((theme) => ({
         height: 0,
         paddingTop: '100%'
     },
-    price: {
-        color: theme.palette.secondary.dark,
-        fontSize: 16,
-        color: "#FFF04D"
-    },
     portfolioName: {
         boxOrient: 'vertical',
         display: '-webkit-box',
@@ -68,7 +63,7 @@ const useStyles = makeStyles((theme) => ({
  export const PortfolioCard = (props) => {
     const classes = useStyles();
     const dispatch = useDispatch()
-    // const images = (props.images.length > 0) ? props.images : [NoImage]
+    const images = (props.images.length > 0) ? props.images : [google]
 
     const [anchorEl, setAnchorEl] = React.useState(null);
 
@@ -84,7 +79,7 @@ const useStyles = makeStyles((theme) => ({
         <Card className={classes.root}>
             <CardMedia
                 className={classes.media}
-                // image={images[0].path}
+                image={images[0].path}
                 onClick={() => dispatch(push('/portfolio/'+props.id))}
                 title=""
             />
@@ -95,6 +90,7 @@ const useStyles = makeStyles((theme) => ({
                         {props.appName}
                     </Typography>
                 </div>
+
                         <IconButton className={classes.icon} onClick={handleClick} color="secondary">
                             <MoreVertIcon />
                         </IconButton>
