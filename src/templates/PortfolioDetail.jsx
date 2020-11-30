@@ -8,6 +8,7 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import DesktopMacIcon from '@material-ui/icons/DesktopMac';
 import { RaderPlot } from './components/RaderPlot';
 import ControlledAccordions from '../UIkit/ControlledAccordion';
+import EmailIcon from '@material-ui/icons/Email';
 
 
 
@@ -52,17 +53,7 @@ const PortfolioDetail = () => {
  return (
    <>
             {portfolio && (
-              <Grid container spacing={5}>
-                <Grid  item xs={4} >              
-                       <ImageSwiper images={portfolio.images}/>
-                </Grid>  
-                <Grid item xs={4}>
-                   <ControlledAccordions
-                    backgroundOfCreation={portfolio.backgroundOfCreation} 
-                    remakablePoints={portfolio.remakablePoints}
-                    futureIssue={portfolio.futureIssue}
-                    />
-                </Grid>  
+              <Grid container spacing={5}>  
                 <Grid  item xs={4} >
                     <div className={classes.detail}>
                         <h2 className="u-text__headline">{portfolio.appName}</h2>
@@ -74,12 +65,23 @@ const PortfolioDetail = () => {
                        <a href={portfolio.githubUrl} className={classes.linkDecoration}>
                         <GitHubIcon className={classes.icon}/>
                        </a>
+                       <a href={portfolio.githubUrl} className={classes.linkDecoration}>
+                        <EmailIcon className={classes.icon}/>
+                       </a>
                        <div  className='module-spacer--small' />
                        <RaderPlot/>
                     </div>
                 </Grid>
-
-
+                <Grid  item xs={4} >              
+                       <ImageSwiper images={portfolio.images}/>
+                </Grid>
+                <Grid item xs={4}>
+                   <ControlledAccordions
+                    backgroundOfCreation={portfolio.backgroundOfCreation} 
+                    remakablePoints={portfolio.remakablePoints}
+                    futureIssue={portfolio.futureIssue}
+                    />
+                </Grid>  
              </Grid>  
             )}
   </>
