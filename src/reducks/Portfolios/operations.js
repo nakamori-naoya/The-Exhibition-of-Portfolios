@@ -3,7 +3,7 @@ import { push } from 'connected-react-router';
 import { fetchPortfoliosAction } from './actions';
 
 
-export const savePortfolio = (id, appName, appUrl, githubUrl, backgroundOfCreation, growth, futureIssue, usability, businessOriented, sociality, images) => {
+export const savePortfolio = (id, appName, appUrl, githubUrl, backgroundOfCreation, remakablePoints, futureIssue, usability, businessOriented, sociality, images) => {
   return async (dispatch) => {
     const timestamp = FirebaseTimestamp.now()
     const data ={
@@ -11,7 +11,7 @@ export const savePortfolio = (id, appName, appUrl, githubUrl, backgroundOfCreati
       appUrl: appUrl,
       githubUrl: githubUrl,
       backgroundOfCreation: backgroundOfCreation,
-      growth: growth,
+      remakablePoints: remakablePoints,
       futureIssue: futureIssue,
       updated_at: timestamp,
       usability: usability, 

@@ -57,7 +57,11 @@ const PortfolioDetail = () => {
                        <ImageSwiper images={portfolio.images}/>
                 </Grid>  
                 <Grid item xs={4}>
-                   <ControlledAccordions backgroundOfCreation={portfolio.backgroundOfCreation}/>
+                   <ControlledAccordions
+                    backgroundOfCreation={portfolio.backgroundOfCreation} 
+                    remakablePoints={portfolio.remakablePoints}
+                    futureIssue={portfolio.futureIssue}
+                    />
                 </Grid>  
                 <Grid  item xs={4} >
                     <div className={classes.detail}>

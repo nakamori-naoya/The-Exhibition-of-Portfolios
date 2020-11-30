@@ -24,7 +24,7 @@ export const EditPortofolio = () => {
         [appUrl, setAppUrl] = useState(""),
         [githubUrl, setGithubUrl] = useState(""),
         [backgroundOfCreation, setBackgroundOfCreation] = useState(""),
-        [growth, setGrowth] = useState(""),
+        [remakablePoints, setRemakablePoints] = useState(""),
         [futureIssue, setFutureIssue] = useState(""),
         [images, setImages] = useState([])
 
@@ -44,9 +44,9 @@ export const EditPortofolio = () => {
     setBackgroundOfCreation(event.target.value)
   }, [setBackgroundOfCreation]);
 
-  const  inputGrowth  = useCallback((event) => {
-    setGrowth(event.target.value)
-  }, [setGrowth]);
+  const  inputRemakablePoints  = useCallback((event) => {
+    setRemakablePoints(event.target.value)
+  }, [setRemakablePoints]);
 
   const  inputFutureIssue  = useCallback((event) => {
     setFutureIssue(event.target.value)
@@ -94,7 +94,7 @@ export const EditPortofolio = () => {
          />
          <TextInput
          fullWidth={true} label={"ここに注目"} multiline={true} required={true}
-         onChange={inputGrowth} rows={3} rowsMax={5} value={growth} type={"text"} placeholder={"あなたがこのアプリの特にここ見て欲しいという部分をご記入ください"}
+         onChange={inputRemakablePoints} rows={3} rowsMax={5} value={remakablePoints} type={"text"} placeholder={"あなたがこのアプリの特にここ見て欲しいという部分をご記入ください"}
          />
          <TextInput
          fullWidth={true} label={"今後の課題"} multiline={true} required={true}
@@ -116,7 +116,7 @@ export const EditPortofolio = () => {
         <div  className="module-spacer--small"/> 
           <LightBlueButton
           label={"登録"}
-          onClick={()=>dispatch(savePortfolio(id, appName, appUrl, githubUrl, backgroundOfCreation, growth, futureIssue, usability, businessOriented, sociality, images))}
+          onClick={()=>dispatch(savePortfolio(id, appName, appUrl, githubUrl, backgroundOfCreation, remakablePoints, futureIssue, usability, businessOriented, sociality, images))}
           />
         </div>
       </div>
