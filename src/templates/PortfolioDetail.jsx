@@ -7,6 +7,7 @@ import {Grid, IconButton } from '@material-ui/core';
 import GitHubIcon from '@material-ui/icons/GitHub';
 import DesktopMacIcon from '@material-ui/icons/DesktopMac';
 import { RaderPlot } from './components/RaderPlot';
+import ControlledAccordions from '../UIkit/ControlledAccordion';
 
 
 
@@ -54,7 +55,10 @@ const PortfolioDetail = () => {
               <Grid container spacing={5}>
                 <Grid  item xs={4} >              
                        <ImageSwiper images={portfolio.images}/>
-                </Grid>    
+                </Grid>  
+                <Grid item xs={4}>
+                   <ControlledAccordions backgroundOfCreation={portfolio.backgroundOfCreation}/>
+                </Grid>  
                 <Grid  item xs={4} >
                     <div className={classes.detail}>
                         <h2 className="u-text__headline">{portfolio.appName}</h2>
