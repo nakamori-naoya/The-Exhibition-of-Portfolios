@@ -7,6 +7,7 @@ import { fetchPortfolios } from './reducks/Portfolios/operations';
 import { getProducts } from './reducks/Portfolios/selector';
 import { PortfolioCard } from './templates/components/PortfolioCard';
 import { RaderPlot } from './templates/components/RaderPlot';
+import SimpleTabs from './UIkit/SimpleTab';
 
 export const Home = () => {
   const dispatch = useDispatch();
@@ -37,6 +38,7 @@ export const Home = () => {
          ))
        )}   
       </div>
+      <SimpleTabs />
     </div>
   )
 }
