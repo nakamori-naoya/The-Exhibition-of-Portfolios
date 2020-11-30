@@ -33,6 +33,15 @@
   display: flex;
 }
 
+.c-section-wrapin {
+  margin: 0 auto;
+  max-width: 575px;
+  position: relative;
+  padding: 0 1rem;
+  text-align: center;
+  width: 100%;
+}
+
 /* Utilityゾーン */
 .u-text__headline {
   color: #000000;
