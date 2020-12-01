@@ -15,6 +15,8 @@ import ListSubheader from '@material-ui/core/ListSubheader';
 import Avatar from '@material-ui/core/Avatar';
 import BoxTextInput from './BoxTextInput';
 import { useState, useCallback } from 'react';
+import LightBlueButton from './LightBlueButton';
+import { useDispatch } from 'react-redux';
 
 const messages = [
   {
@@ -100,6 +102,7 @@ const useStyles = makeStyles((theme) => ({
 
 export default function BottomAppBar(props) {
   const classes = useStyles();
+  const dispatch = useDispatch(); 
 
 
   const [comment, setComment ] = useState("") 
@@ -132,6 +135,9 @@ export default function BottomAppBar(props) {
         fullWidth={true}  label={"コメント投稿"}  multiline={true} rows={2}
         type={"text"}  value={comment}  
         onChange={inputComment} placeholder={"誹謗中傷以外なんでも！！"}/>
+      <LightBlueButton 
+      //onClick={()=>dispatch(savePortfolio())}
+      label={"投稿"}/>
     </React.Fragment>
   );
 }
