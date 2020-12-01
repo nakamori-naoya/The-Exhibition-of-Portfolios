@@ -10,6 +10,8 @@ import { RaderPlot } from './components/RaderPlot';
 import ControlledAccordions from '../UIkit/ControlledAccordion';
 import EmailIcon from '@material-ui/icons/Email';
 import BottomAppBar from '../UIkit/BottomAppBar';
+import BoxTextInput from '../UIkit/BoxTextInput';
+import LightBlueButton from '../UIkit/LightBlueButton';
 
 
 
@@ -39,7 +41,6 @@ const PortfolioDetail = () => {
   const path = selector.router.location.pathname
   const id = path.split('/portfolio/')[1]
 
-
   const [portfolio, setPortfolio] = useState(null);
 
   useEffect(() => {
@@ -50,6 +51,13 @@ const PortfolioDetail = () => {
       })
   },[])
 
+
+  //commnetの投稿
+  const portfolioId = portfolio.id
+  const [comment, setComment ] = useState("") 
+  const  inputComment  = useCallback( (event) => {
+     setComment(event.target.value)
+  }, [setComment]);
 
  return (
    <>
@@ -85,6 +93,13 @@ const PortfolioDetail = () => {
                 </Grid>  
                 <Grid  item xs={4} >              
                   <BottomAppBar PortfolioId={portfolio.id}/>
+                  <BoxTextInput  
+                    fullWidth={true}  label={"コメント投稿"}  multiline={true} rows={2}
+                    type={"text"}  value={comment}  
+                    onChange={inputComment} placeholder={"誹謗中傷以外なんでも！！"}/>
+                  <LightBlueButton
+      //onClick={()=>dispatch(saveCommnets(portfolioId, comment))}
+      label={"投稿"}/>
                 </Grid>
              </Grid>  
             )}
