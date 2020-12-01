@@ -32,7 +32,7 @@ export default function ControlledAccordions(props) {
   const handleChange = (panel) => (event, isExpanded) => {
     setExpanded(isExpanded ? panel : false);
   };
-
+//配列に格納して、mapで回せばリファクタリングできそう
   return (
     <div className={classes.root}>
       <Accordion expanded={expanded === 'panel1'} onChange={handleChange('panel1')}>
