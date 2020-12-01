@@ -9,6 +9,7 @@ import DesktopMacIcon from '@material-ui/icons/DesktopMac';
 import { RaderPlot } from './components/RaderPlot';
 import ControlledAccordions from '../UIkit/ControlledAccordion';
 import EmailIcon from '@material-ui/icons/Email';
+import BottomAppBar from '../UIkit/BottomAppBar';
 
 
 
@@ -82,6 +83,9 @@ const PortfolioDetail = () => {
                     futureIssue={portfolio.futureIssue}
                     />
                 </Grid>  
+                <Grid  item xs={4} >              
+                  <BottomAppBar PortfolioId={portfolio.id}/>
+                </Grid>
              </Grid>  
             )}
   </>
