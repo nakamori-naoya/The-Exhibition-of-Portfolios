@@ -8,11 +8,15 @@ service cloud.firestore {
 
     function isUserAuthenticated(userID){
       return isAnyAuthenticated() && userID == request.auth.uid
-
     }
 
     match /users/{userID} {
-      allow create, update: if isUserAuthenticated(userID);
+      allow create: if isUserAuthenticated(userID) 
+        &&(!('name' in request.resource.data) || (request.resource.data.name is string && request.resource.data.name.size() <= 20))
+        &&(!('iconURL' in request.resource.data) || (request.resource.data.iconURL is string && request.resource.data.iconURL.size() <= 1000))
+        && request.resource.data.createdAt == request.time 
+
+      allow update: if isUserAuthenticated(userID);
       allow get: if isUserAuthenticated(userID)
     }
   }
