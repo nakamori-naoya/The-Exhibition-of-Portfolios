@@ -1,22 +1,29 @@
 import { db, FirebaseTimestamp } from '../../firebase/index';
 import { push } from 'connected-react-router';
 import { fetchPortfoliosAction } from './actions';
+import firebase from "firebase/app"
+import { Business } from '@material-ui/icons';
 
 
-export const savePortfolio = (id, appName, appUrl, githubUrl, backgroundOfCreation, remakablePoints, futureIssue, usability, businessOriented, sociality, images) => {
+export const savePortfolio = (id, appName, appUrl, githubUrl, snsUrl, backgroundOfCreation, remakablePoints, futureIssue, usability, businessOriented, sociality, creativity, skill, totalCount, images) => {
   return async (dispatch) => {
     const timestamp = FirebaseTimestamp.now()
     const data ={
       appName: appName,
       appUrl: appUrl,
       githubUrl: githubUrl,
+      snsUrl: snsUrl,
       backgroundOfCreation: backgroundOfCreation,
       remakablePoints: remakablePoints,
       futureIssue: futureIssue,
       updated_at: timestamp,
-      usability: usability, 
-      businessOriented: businessOriented, 
-      sociality: sociality,
+      selfEval: [usability, sociality, businessOriented, creativity, skill, totalCount],
+      usability: [],
+      sociality: [],
+      businessOriented: [],
+      creativity: [],
+      skill: [],
+      totalCount: [],
       images: images
     }
 
@@ -55,12 +62,19 @@ export const fetchPortfolios = () => {
 }
 
 
-// export const evalPortfolio = (id) => {
-//   return async (dispatch) => {
-//     db.collection("portfolio").doc(id)
-//      .then(snapshot => {
-//        const data = snapshot.data()
-       
-//      })
-//   }
-// }
+export const saveEvaluation = (id, usability, sociality, businessOriented, creativity, skill, totalCount ) => {
+  return async (dispatch) => {
+   const portfolioRef =  db.collection("portfolio").doc(id)
+   portfolioRef.update({
+    usability: firebase.firestore.FieldValue.arrayUnion(usability),
+    sociality: firebase.firestore.FieldValue.arrayUnion(sociality),
+    businessOriented: firebase.firestore.FieldValue.arrayUnion(businessOriented),
+    creativity: firebase.firestore.FieldValue.arrayUnion(creativity),
+    skill: firebase.firestore.FieldValue.arrayUnion(skill),
+    totalCount: firebase.firestore.FieldValue.arrayUnion(totalCount),
+})
+   .then(()=>{
+     dispatch(push("/"))
+   })
+  }
+}

@@ -1,22 +1,14 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
 import CssBaseline from '@material-ui/core/CssBaseline';
-import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
 import Paper from '@material-ui/core/Paper';
-import Fab from '@material-ui/core/Fab';
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemAvatar from '@material-ui/core/ListItemAvatar';
 import ListItemText from '@material-ui/core/ListItemText';
-import ListSubheader from '@material-ui/core/ListSubheader';
 import Avatar from '@material-ui/core/Avatar';
-import BoxTextInput from './BoxTextInput';
-import { useState, useCallback } from 'react';
-import LightBlueButton from './LightBlueButton';
-import { useDispatch } from 'react-redux';
+
 
 const messages = [
   {
@@ -102,14 +94,6 @@ const useStyles = makeStyles((theme) => ({
 
 export default function BottomAppBar(props) {
   const classes = useStyles();
-  const dispatch = useDispatch(); 
-
-
-  const [comment, setComment ] = useState("") 
-  
-  const  inputComment  = useCallback( (event) => {
-     setComment(event.target.value)
-  }, [setComment]);
 
   return (
     <React.Fragment>
@@ -131,13 +115,6 @@ export default function BottomAppBar(props) {
           ))}
         </List>
       </Paper>
-      <BoxTextInput  
-        fullWidth={true}  label={"コメント投稿"}  multiline={true} rows={2}
-        type={"text"}  value={comment}  
-        onChange={inputComment} placeholder={"誹謗中傷以外なんでも！！"}/>
-      <LightBlueButton 
-      //onClick={()=>dispatch(savePortfolio())}
-      label={"投稿"}/>
     </React.Fragment>
   );
 }

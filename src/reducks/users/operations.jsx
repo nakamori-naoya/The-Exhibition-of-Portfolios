@@ -5,7 +5,7 @@ import firebase from "firebase/app"
 
 export const signUp  = (username, email, password, confirmPassword) => {
   return async (dispatch) => {
-    if(username === "" || email=== "" || password === "" || confirmPassword === ""){
+    if(username === "" || email === "" || password === "" || confirmPassword === ""){
       alert("必須項目が入力されておりません。")
       return false
     }

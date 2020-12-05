@@ -1,0 +1,30 @@
+publicUserdata:
+ dispalyName: String
+ openContacts: [String]
+ dispalyIcon
+-uid  
+
+user
+-email
+-uid
+-username
+-createdAt
+-updatedAt
+ chats(サブコレクション)
+ [{PortfolioId, messages[{message, uid}]} ] 
+
+Portfolios
+-appName
+-appUrl
+-githubUrl
+
+
+-backgroundOfCreation
+-futureIssue
+-remarkablePoints
+
+
+-sociality []
+-usability []
+-businessOriented []
+

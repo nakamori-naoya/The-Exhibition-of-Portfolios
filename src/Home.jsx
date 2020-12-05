@@ -22,12 +22,6 @@ export const Home = () => {
   
   return (
     <div>
-      <LightBlueButton
-       label={"sign out"}
-       onClick={()=> dispatch(signOut())}/>
-       <BoxTextInput
-       label={"メールアドレス"}/>
-
         <div className="p-grid__row">
          {portfolios.length > 0  && (
          portfolios.map(portfolio => (
@@ -38,7 +32,6 @@ export const Home = () => {
          ))
        )}   
       </div>
-      <SimpleTabs />
     </div>
   )
 }
