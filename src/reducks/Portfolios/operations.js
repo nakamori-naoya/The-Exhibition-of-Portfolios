@@ -59,11 +59,12 @@ export const fetchPortfolios = () => {
 }
 
 
-export const saveEvaluation = (id, usability) => {
+export const saveEvaluation = (id, usability, sociality, businessOriented, creativity, skill, totalCount ) => {
   return async (dispatch) => {
    const portfolioRef =  db.collection("portfolio").doc(id)
    portfolioRef.update({
-    usability: firebase.firestore.FieldValue.arrayUnion(usability)
+    usability: firebase.firestore.FieldValue.arrayUnion(usability),
+    sociality: firebase.firestore.FieldValue.arrayUnion(sociality)
 });
   }
 }
