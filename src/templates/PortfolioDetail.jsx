@@ -53,6 +53,11 @@ const PortfolioDetail = () => {
   const [usability, setUsability] = useState(0);
   const [businessOriented, setBusinessOriented] = useState(0);
   const [sociality, setSociality] = useState(0);
+  const [creativity, setCreativity] = useState(0);
+  const [skill, setSkill] = useState(0);
+  const [totalCount, setTotalCount] = useState(0);
+
+
 
   const  selectUsability  = useCallback((event) => {
     setUsability(event.target.value)
@@ -65,6 +70,18 @@ const PortfolioDetail = () => {
   const  selectSociality  = useCallback((event) => {
     setSociality(event.target.value)
   }, [setSociality]);
+
+  const  selectCreativity  = useCallback((event) => {
+    setCreativity(event.target.value)
+  }, [setCreativity]);
+
+  const  selectSkill  = useCallback((event) => {
+    setSkill(event.target.value)
+  }, [setSkill]);
+
+  const  selectTotalCount  = useCallback((event) => {
+    setTotalCount(event.target.value)
+  }, [setTotalCount]);
 
 
  return (
@@ -115,13 +132,13 @@ const PortfolioDetail = () => {
 
       <div className="c-content-display c-section-wrapin">
       <SelectButton
-      label={"Creativity"} value={businessOriented} onChange={selectBusinessOriented} 
+      label={"Creativity"} value={creativity} onChange={selectCreativity} 
       datas={[1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0]} description={"発想の柔軟性を評価して下さい"}   />
       <SelectButton
-      label={"Technological Strength"} value={businessOriented} onChange={selectBusinessOriented} 
+      label={"Skill"} value={skill} onChange={selectSkill} 
       datas={[1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0]} description={"技術力を評価して下さい　　　"}   />
       <SelectButton
-      label={"Total Count"} value={businessOriented} onChange={selectBusinessOriented} 
+      label={"Total Count"} value={totalCount} onChange={selectTotalCount} 
       datas={[1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0]} description={"総合評価を教えて下さい"}   />
       </div>
     </>  
