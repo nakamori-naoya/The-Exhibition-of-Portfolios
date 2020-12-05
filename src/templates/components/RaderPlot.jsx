@@ -20,14 +20,35 @@ size:{
 
 export const RaderPlot = (props) => {
   const classes = useStyles()
-  console.log(props.usability)
 
   const sumUsability = props.usability.reduce((a,b)=>{
     return (a + b) 
   })
 
-const datas = {
+  const sumSociality = props.sociality.reduce((a,b)=>{
+    return (a + b) 
+  })
+
+  const sumBusinessOriented = props.businessOriented.reduce((a,b)=>{
+    return (a + b) 
+  })
+
+  const sumCreativity = props.creativity.reduce((a,b)=>{
+    return (a + b) 
+  })
+
+  const sumSkill = props.skill.reduce((a,b)=>{
+    return (a + b) 
+  })
+
+  const sumTotalCount = props.totalCount.reduce((a,b)=>{
+    return (a + b) 
+  })
+
+ 
+
   
+const datas = {
   labels: [
     "使いやすさ",
     "ビジネス性",
@@ -51,7 +72,9 @@ const datas = {
     borderColor: "#ff1493",
     pointBackgroundColor:  "f1493",
     pointBorderColor: "#fff",
-    data: [sumUsability / props.usability.length , 2, 2]
+    data: [sumUsability / props.usability.length , sumBusinessOriented/props.businessOriented.length, 
+           sumSociality / props.sociality.length, sumCreativity / props.creativity.length,
+           sumSkill / props.skill.length, sumTotalCount / props.totalCount.length]
   }
 ]
 }

@@ -108,7 +108,8 @@ const PortfolioDetail = () => {
                          <img alt="" src={snsIcon} className={classes.icon} />
                        </a>
                        <div  className='module-spacer--small' />
-                       <RaderPlot selfEval={portfolio.selfEval} usability={portfolio.usability}/>
+                       <RaderPlot selfEval={portfolio.selfEval} usability={portfolio.usability} sociality={portfolio.sociality}
+                                  businessOriented={portfolio.businessOriented} creativity={portfolio.creativity} skill={portfolio.skill} totalCount={portfolio.totalCount} />
                     </div>
                 </Grid>
                 <Grid  item xs={4} >              
