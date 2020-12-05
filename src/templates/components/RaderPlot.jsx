@@ -21,30 +21,41 @@ size:{
 export const RaderPlot = (props) => {
   const classes = useStyles()
 
-  const sumUsability = props.usability.reduce((a,b)=>{
-    return (a + b) 
-  })
+  const userEval = () => {
+    if(props.usability.length === 0 || props.businessOriented.length === 0 || props.sociality.length === 0 || props.creativity.length === 0 || props.skill.length === 0 || props.totalCount.length === 0 ){
+      return  [0,0,0,0,0,0]
+    }else{
+      const sumUsability = props.usability.reduce((a,b)=>{
+        return (a + b) 
+      })
+    
+      const sumSociality = props.sociality.reduce((a,b)=>{
+        return (a + b) 
+      })
+    
+      const sumBusinessOriented = props.businessOriented.reduce((a,b)=>{
+        return (a + b) 
+      })
+    
+      const sumCreativity = props.creativity.reduce((a,b)=>{
+        return (a + b) 
+      })
+    
+      const sumSkill = props.skill.reduce((a,b)=>{
+        return (a + b) 
+      })
+    
+      const sumTotalCount = props.totalCount.reduce((a,b)=>{
+        return (a + b) 
+      })
+      return  [sumUsability / props.usability.length , sumBusinessOriented/props.businessOriented.length, 
+          sumSociality / props.sociality.length, sumCreativity / props.creativity.length,
+          sumSkill / props.skill.length, sumTotalCount / props.total.length]
+      
+  }
+}
 
-  const sumSociality = props.sociality.reduce((a,b)=>{
-    return (a + b) 
-  })
-
-  const sumBusinessOriented = props.businessOriented.reduce((a,b)=>{
-    return (a + b) 
-  })
-
-  const sumCreativity = props.creativity.reduce((a,b)=>{
-    return (a + b) 
-  })
-
-  const sumSkill = props.skill.reduce((a,b)=>{
-    return (a + b) 
-  })
-
-  const sumTotalCount = props.totalCount.reduce((a,b)=>{
-    return (a + b) 
-  })
-
+  
  
 
   
@@ -72,9 +83,7 @@ const datas = {
     borderColor: "#ff1493",
     pointBackgroundColor:  "f1493",
     pointBorderColor: "#fff",
-    data: [sumUsability / props.usability.length , sumBusinessOriented/props.businessOriented.length, 
-           sumSociality / props.sociality.length, sumCreativity / props.creativity.length,
-           sumSkill / props.skill.length, sumTotalCount / props.totalCount.length]
+    data: userEval
   }
 ]
 }
