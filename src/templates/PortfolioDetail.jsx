@@ -12,6 +12,7 @@ import AndroidIcon from '@material-ui/icons/Android';
 import LightBlueButton from '../UIkit/LightBlueButton';
 import snsIcon from '../assets/img/snsIcon.png'; 
 import { SelectButton } from '../UIkit/SelectButton';
+import { saveEvaluation } from '../reducks/Portfolios/operations';
 
 
 
@@ -145,7 +146,7 @@ const PortfolioDetail = () => {
         <div  className="module-spacer--small"/> 
           <LightBlueButton
           label={"登録"}
-          //onClick={()=>dispatch(saveEvaluation(id, usability, sociality, businessOriented, creativity, skill, totalCount))}
+          onClick={()=>dispatch(saveEvaluation(id, usability, sociality, businessOriented, creativity, skill, totalCount))}
           />
       </div>
     </>  

@@ -1,6 +1,7 @@
 import { db, FirebaseTimestamp } from '../../firebase/index';
 import { push } from 'connected-react-router';
 import { fetchPortfoliosAction } from './actions';
+import firebase from "firebase/app"
 
 
 export const savePortfolio = (id, appName, appUrl, githubUrl, backgroundOfCreation, remakablePoints, futureIssue, usability, businessOriented, sociality, images) => {
@@ -14,9 +15,12 @@ export const savePortfolio = (id, appName, appUrl, githubUrl, backgroundOfCreati
       remakablePoints: remakablePoints,
       futureIssue: futureIssue,
       updated_at: timestamp,
-      usability: usability, 
-      businessOriented: businessOriented, 
-      sociality: sociality,
+      usability: [],
+      sociality: [],
+      businessOriented: [],
+      creativity: [],
+      skill: [],
+      totalCount: [],
       images: images
     }
 
@@ -55,12 +59,11 @@ export const fetchPortfolios = () => {
 }
 
 
-// export const evalPortfolio = (id) => {
-//   return async (dispatch) => {
-//     db.collection("portfolio").doc(id)
-//      .then(snapshot => {
-//        const data = snapshot.data()
-       
-//      })
-//   }
-// }
+export const saveEvaluation = (id, usability) => {
+  return async (dispatch) => {
+   const portfolioRef =  db.collection("portfolio").doc(id)
+   portfolioRef.update({
+    usability: firebase.firestore.FieldValue.arrayUnion(usability)
+});
+  }
+}
