@@ -17,7 +17,6 @@ const ImageArea = (props) => {
   const classes = useStyles();
   const images = props.images;
   
-  //プレビュー画像のアップロード
   const uploadImage = useCallback((event) => {
     const file = event.target.files;
     let blob = new Blob(file, { type: "image/jpeg" });
@@ -25,7 +24,6 @@ const ImageArea = (props) => {
     const N=16;
     const fileName = Array.from(crypto.getRandomValues(new Uint32Array(N))).map((n)=>S[n%S.length]).join('')
     const uploadRef = storage.ref('images').child(fileName);
-    //imagesフォルダの中にfilenameのディレクトリを作成
     const uploadTask = uploadRef.put(blob);
 
     uploadTask.then(() => {
@@ -39,7 +37,6 @@ const ImageArea = (props) => {
 
 
 
-  //プレビュー画像の削除
   const deleteImage = useCallback( async (id) => {
   const ret = window.confirm('この画像を削除しますか？')
   if (!ret) {
@@ -59,7 +56,7 @@ const ImageArea = (props) => {
         )}
       </div>    
         <div className="u-text-right" >
-          <span>商品画像を登録する</span>
+          <span>ポートフォリオの画像を登録する</span>
           <IconButton className={classes.icon} >
             <label>
                <AddPhotoALternateIcon/>

@@ -2,7 +2,6 @@ import { db, FirebaseTimestamp } from '../../firebase/index';
 import { push } from 'connected-react-router';
 import { fetchPortfoliosAction } from './actions';
 import firebase from "firebase/app"
-import { Business } from '@material-ui/icons';
 
 
 export const savePortfolio = (id, appName, appUrl, githubUrl, snsUrl, backgroundOfCreation, remakablePoints, futureIssue, usability, businessOriented, sociality, creativity, skill, totalCount, images) => {
@@ -74,7 +73,9 @@ export const saveEvaluation = (id, usability, sociality, businessOriented, creat
     totalCount: firebase.firestore.FieldValue.arrayUnion(totalCount),
 })
    .then(()=>{
-     dispatch(push("/"))
+    let id = window.location.pathname
+    console.log(id)
+     dispatch(push(id))
    })
   }
 }
