@@ -2,9 +2,10 @@ import { db, FirebaseTimestamp } from '../../firebase/index';
 import { push } from 'connected-react-router';
 import { fetchPortfoliosAction } from './actions';
 import firebase from "firebase/app"
+import { Business } from '@material-ui/icons';
 
 
-export const savePortfolio = (id, appName, appUrl, githubUrl, backgroundOfCreation, remakablePoints, futureIssue, usability, businessOriented, sociality, images) => {
+export const savePortfolio = (id, appName, appUrl, githubUrl, backgroundOfCreation, remakablePoints, futureIssue, usability, businessOriented, sociality, creativity, skill, totalCount, images) => {
   return async (dispatch) => {
     const timestamp = FirebaseTimestamp.now()
     const data ={
@@ -15,6 +16,7 @@ export const savePortfolio = (id, appName, appUrl, githubUrl, backgroundOfCreati
       remakablePoints: remakablePoints,
       futureIssue: futureIssue,
       updated_at: timestamp,
+      selfEval: [usability, sociality, businessOriented, creativity, skill, totalCount],
       usability: [],
       sociality: [],
       businessOriented: [],
