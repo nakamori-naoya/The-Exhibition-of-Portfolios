@@ -66,7 +66,11 @@ export const saveEvaluation = (id, usability, sociality, businessOriented, creat
    const portfolioRef =  db.collection("portfolio").doc(id)
    portfolioRef.update({
     usability: firebase.firestore.FieldValue.arrayUnion(usability),
-    sociality: firebase.firestore.FieldValue.arrayUnion(sociality)
+    sociality: firebase.firestore.FieldValue.arrayUnion(sociality),
+    businessOriented: firebase.firestore.FieldValue.arrayUnion(businessOriented),
+    creativity: firebase.firestore.FieldValue.arrayUnion(creativity),
+    skill: firebase.firestore.FieldValue.arrayUnion(skill),
+    totalCount: firebase.firestore.FieldValue.arrayUnion(totalCount),
 });
   }
 }
