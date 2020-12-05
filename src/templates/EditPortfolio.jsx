@@ -85,6 +85,7 @@ export const EditPortofolio = () => {
   
 
   return (
+    <>
     <section>
       <h2 className="u-text__headline u-text-center" >アプリを出展</h2>
       <div className="c-section-container">
@@ -115,17 +116,22 @@ export const EditPortofolio = () => {
          fullWidth={true} label={"今後の課題"} multiline={true} required={true}
          onChange={inputFutureIssue} rows={3} rowsMax={5} value={futureIssue} type={"text"} placeholder={"Firebaseでのクエリの投げ方がいまいち分からず、ユーザーが検索する際に・・・"}
          />
-         <div className="c-content-display">
+     </div>
+    </section>
+       
+      <div className="c-content-display c-section-wrapin">
       <SelectButton
-      label={"Usabilitly"} value={usability} onChange={selectUsability} 
-      datas={[1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0]} description={"使いやすさを教えてください"}   />
+      label={"Usability"} value={usability} onChange={selectUsability} 
+      datas={[1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0]} description={"使いやすさを評価して下さい"}   />
       <SelectButton
-      label={"BusinessOriented"} value={businessOriented} onChange={selectBusinessOriented} 
-      datas={[1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0]} description={"ビジネス性"}   />
+      label={"Sociality"} value={sociality} onChange={selectSociality} 
+      datas={[1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0]} description={"社会貢献性を評価して下さい"}   />
       <SelectButton
-      label={"sociality"} value={sociality} onChange={selectSociality} 
-      datas={[1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0]} description={"使いやすさを教えてください"}   />
-      </div>
+      label={"Businness Oriented"} value={businessOriented} onChange={selectBusinessOriented} 
+      datas={[1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0]} description={"ビジネス性を評価して下さい"}   />
+      </div> 
+
+
       <div className="c-content-display c-section-wrapin">
       <SelectButton
       label={"Creativity"} value={creativity} onChange={selectCreativity} 
@@ -145,7 +151,7 @@ export const EditPortofolio = () => {
           onClick={()=>dispatch(savePortfolio(id, appName, appUrl, githubUrl, backgroundOfCreation, remakablePoints, futureIssue, usability, businessOriented, sociality,creativity, skill, totalCount, images))}
           />
         </div>
-      </div>
-    </section>
+    </>
+   
   )
 }

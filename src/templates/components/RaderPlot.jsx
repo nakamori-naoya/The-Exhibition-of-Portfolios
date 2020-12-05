@@ -23,12 +23,12 @@ export const RaderPlot = (props) => {
 
 const datas = {
   labels: [
-    "ユーザーエクスペリエンス",
-    "ビジネス生",
-    "社会性",
-    "Business-oriented",
-    "課題解決",
-    "満足度"
+    "使いやすさ",
+    "ビジネス性",
+    "社会貢献性",
+    "創造性",
+    "技術力",
+    "総合評価"
   ],
   datasets: [{
     label: "自己評価",
@@ -36,7 +36,7 @@ const datas = {
     borderColor: "#008b8b",
     pointBackgroundColor:  "#008b8b",
     pointBorderColor: "#fff",
-    data: [props.usability, props.businessOriented, props.sociality]
+    data: props.selfEval
   },
 
   {

@@ -100,11 +100,11 @@ const PortfolioDetail = () => {
                        <a href={portfolio.githubUrl} className={classes.linkDecoration}>
                         <GitHubIcon className={classes.icon}/>
                        </a>
-                       <a href={portfolio.githubUrl} className={classes.linkDecoration}>
+                       <a href={portfolio.snsUrl} className={classes.linkDecoration}>
                          <img alt="" src={snsIcon} className={classes.icon} />
                        </a>
                        <div  className='module-spacer--small' />
-                       <RaderPlot/>
+                       <RaderPlot selfEval={portfolio.selfEval}/>
                     </div>
                 </Grid>
                 <Grid  item xs={4} >              
