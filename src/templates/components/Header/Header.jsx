@@ -9,6 +9,7 @@ import { getIsSignedIn } from '../../../reducks/users/selector';
 import AddToPhotosIcon from '@material-ui/icons/AddToPhotos';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import { signOut } from '../../../reducks/users/operations';
+import SmsIcon from '@material-ui/icons/Sms';
 
 const useStyles = makeStyles({
   root: {
@@ -37,7 +38,7 @@ const useStyles = makeStyles({
   title:{
     fontFamily: 'Times New Roman',
     color: "gold",
-    margin: "0 auto",
+    margin: "0 0 0 450px",
     fontSize: "30px"
 
   }
@@ -58,7 +59,10 @@ const Header = () => {
       <AppBar position="fixed"  className={classes.menubar}>
          <Toolbar classNeme={classes.toolBar}>
          <HomeIcon onClick={()=>dispatch(push("/"))} className={classes.iconStyle} fontSize="large" />
+         <SmsIcon onClick={()=>dispatch(push("/"))} className={classes.goldColor} fontSize="large" />
+
             <h2 className={classes.title}>The &thinsp; Exibition &thinsp; of &thinsp; Portfolios</h2>
+            
             {isSignedIn && (
               <div className={classes.iconButtons}>
                 <AddToPhotosIcon onClick={()=>dispatch(push("/edit"))} className={classes.iconStyle} fontSize="large" />
