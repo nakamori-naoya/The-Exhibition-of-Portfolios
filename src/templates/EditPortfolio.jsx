@@ -26,7 +26,8 @@ export const EditPortofolio = () => {
         [backgroundOfCreation, setBackgroundOfCreation] = useState(""),
         [remakablePoints, setRemakablePoints] = useState(""),
         [futureIssue, setFutureIssue] = useState(""),
-        [images, setImages] = useState([])
+        [images, setImages] = useState([]),
+        [snsUrl,setSnsUrl] = useState("")
 
   const  inputAppName  = useCallback((event) => {
     setAppName(event.target.value)
@@ -39,6 +40,10 @@ export const EditPortofolio = () => {
   const  inputGithubUrl  = useCallback((event) => {
     setGithubUrl(event.target.value)
   }, [setGithubUrl]);
+
+  const  inputSnsUrl  = useCallback((event) => {
+    setSnsUrl(event.target.value)
+  }, [setSnsUrl]);
 
   const  inputBackgroundOfCreation  = useCallback((event) => {
     setBackgroundOfCreation(event.target.value)
@@ -104,6 +109,10 @@ export const EditPortofolio = () => {
          fullWidth={true} label={"GithubのURL"} multiline={false} required={true}
          onChange={inputGithubUrl} rows={1} value={githubUrl} type={"text"} placeholder={"https://github.com/nakamori-naoya"}
          />
+          <BoxTextInput
+         fullWidth={true} label={"SNS連携"} multiline={false} required={true}
+         onChange={inputSnsUrl} rows={1} value={snsUrl} type={"text"} placeholder={"あなたのSNSのURLを一つだけご記入ください。公開しても良いものをご記入ください。"}
+         />
          <TextInput
          fullWidth={true} label={"作成の動機"} multiline={true} required={true} 
          onChange={inputBackgroundOfCreation} rows={3} rowsMax={5} value={backgroundOfCreation} type={"text"} placeholder={"あなたがなぜこのアプリを作成したのかをご記入ください。"}
@@ -148,7 +157,7 @@ export const EditPortofolio = () => {
         <div  className="module-spacer--small"/> 
           <LightBlueButton
           label={"登録"}
-          onClick={()=>dispatch(savePortfolio(id, appName, appUrl, githubUrl, backgroundOfCreation, remakablePoints, futureIssue, usability, businessOriented, sociality,creativity, skill, totalCount, images))}
+          onClick={()=>dispatch(savePortfolio(id, appName, appUrl, githubUrl, snsUrl, backgroundOfCreation, remakablePoints, futureIssue, usability, businessOriented, sociality,creativity, skill, totalCount, images))}
           />
         </div>
     </>

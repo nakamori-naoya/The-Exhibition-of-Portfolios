@@ -5,13 +5,14 @@ import firebase from "firebase/app"
 import { Business } from '@material-ui/icons';
 
 
-export const savePortfolio = (id, appName, appUrl, githubUrl, backgroundOfCreation, remakablePoints, futureIssue, usability, businessOriented, sociality, creativity, skill, totalCount, images) => {
+export const savePortfolio = (id, appName, appUrl, githubUrl, snsUrl, backgroundOfCreation, remakablePoints, futureIssue, usability, businessOriented, sociality, creativity, skill, totalCount, images) => {
   return async (dispatch) => {
     const timestamp = FirebaseTimestamp.now()
     const data ={
       appName: appName,
       appUrl: appUrl,
       githubUrl: githubUrl,
+      snsUrl: snsUrl,
       backgroundOfCreation: backgroundOfCreation,
       remakablePoints: remakablePoints,
       futureIssue: futureIssue,
@@ -71,6 +72,9 @@ export const saveEvaluation = (id, usability, sociality, businessOriented, creat
     creativity: firebase.firestore.FieldValue.arrayUnion(creativity),
     skill: firebase.firestore.FieldValue.arrayUnion(skill),
     totalCount: firebase.firestore.FieldValue.arrayUnion(totalCount),
-});
+})
+   .then(()=>{
+     dispatch(push("/"))
+   })
   }
 }

@@ -101,12 +101,14 @@ const PortfolioDetail = () => {
                       <a href={portfolio.appUrl} className={classes.linkDecoration}>
                        <AndroidIcon className={classes.icon}/>
                       </a>
+
                        <a href={portfolio.githubUrl} className={classes.linkDecoration}>
                         <GitHubIcon className={classes.icon}/>
                        </a>
                        <a href={portfolio.snsUrl} className={classes.linkDecoration}>
                          <img alt="" src={snsIcon} className={classes.icon} />
                        </a>
+                       
                        <div  className='module-spacer--small' />
                        <RaderPlot selfEval={portfolio.selfEval} usability={portfolio.usability} sociality={portfolio.sociality}
                                   businessOriented={portfolio.businessOriented} creativity={portfolio.creativity} skill={portfolio.skill} totalCount={portfolio.totalCount} />
