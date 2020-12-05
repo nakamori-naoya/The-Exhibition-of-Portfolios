@@ -141,6 +141,13 @@ const PortfolioDetail = () => {
       label={"Total Count"} value={totalCount} onChange={selectTotalCount} 
       datas={[1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0]} description={"総合評価を教えて下さい"}   />
       </div>
+      <div className="center">
+        <div  className="module-spacer--small"/> 
+          <LightBlueButton
+          label={"登録"}
+          //onClick={()=>dispatch(saveEvaluation(id, usability, sociality, businessOriented, creativity, skill, totalCount))}
+          />
+      </div>
     </>  
             )}
   </>
