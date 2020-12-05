@@ -1,11 +1,10 @@
 import React, {useState, useEffect, useCallback} from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import {db, FirebaseTimestamp} from "../firebase/index"
+import {db} from "../firebase/index"
 import { makeStyles } from '@material-ui/styles';
 import { ImageSwiper } from './components/ImageSwiper';
-import {Grid, IconButton } from '@material-ui/core';
+import {Grid} from '@material-ui/core';
 import GitHubIcon from '@material-ui/icons/GitHub';
-import DesktopMacIcon from '@material-ui/icons/DesktopMac';
 import { RaderPlot } from './components/RaderPlot';
 import ControlledAccordions from '../UIkit/ControlledAccordion';
 import AndroidIcon from '@material-ui/icons/Android';
@@ -44,12 +43,14 @@ const PortfolioDetail = () => {
   const [portfolio, setPortfolio] = useState(null);
 
   useEffect(() => {
-      db.collection('portfolio').doc(id).get()
-          .then(doc => {
-          const data = doc.data()
-          setPortfolio(data)
-      })
-  },[])
+    const unsubscribe = db.collection('portfolio').doc(id).onSnapshot((querySnapshot)=>{
+      setPortfolio(querySnapshot.data()
+      ) 
+    } )
+    return () => {
+      unsubscribe()
+    }
+  }, [])
 
 
   const [yusability, setUsability] = useState(0);
@@ -131,11 +132,12 @@ const PortfolioDetail = () => {
       label={"Usability"} value={yusability} onChange={selectUsability} 
       datas={[1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0]} description={"使いやすさを評価して下さい"}   />
       <SelectButton
-      label={"Sociality"} value={ysociality} onChange={selectSociality} 
-      datas={[1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0]} description={"社会貢献性を評価して下さい"}   />
-      <SelectButton
       label={"Businness Oriented"} value={ybusinessOriented} onChange={selectBusinessOriented} 
       datas={[1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0]} description={"ビジネス性を評価して下さい"}   />
+      <SelectButton
+      label={"Sociality"} value={ysociality} onChange={selectSociality} 
+      datas={[1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0]} description={"社会貢献性を評価して下さい"}   />
+
       </div> 
 
       <div className="c-content-display c-section-wrapin">

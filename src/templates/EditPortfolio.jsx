@@ -133,11 +133,11 @@ export const EditPortofolio = () => {
       label={"Usability"} value={usability} onChange={selectUsability} 
       datas={[1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0]} description={"使いやすさを評価して下さい"}   />
       <SelectButton
-      label={"Sociality"} value={sociality} onChange={selectSociality} 
-      datas={[1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0]} description={"社会貢献性を評価して下さい"}   />
-      <SelectButton
       label={"Businness Oriented"} value={businessOriented} onChange={selectBusinessOriented} 
       datas={[1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0]} description={"ビジネス性を評価して下さい"}   />
+      <SelectButton
+      label={"Sociality"} value={sociality} onChange={selectSociality} 
+      datas={[1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0]} description={"社会貢献性を評価して下さい"}   />
       </div> 
 
 

@@ -2,11 +2,13 @@ import React,{useState, useCallback} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
-import google from "../../../assets/img/google.png"
+import HomeIcon from '@material-ui/icons/Home';
 import { useSelector, useDispatch } from 'react-redux';
 import {push} from "connected-react-router" 
 import { getIsSignedIn } from '../../../reducks/users/selector';
 import AddToPhotosIcon from '@material-ui/icons/AddToPhotos';
+import ExitToAppIcon from '@material-ui/icons/ExitToApp';
+import { signOut } from '../../../reducks/users/operations';
 
 const useStyles = makeStyles({
   root: {
@@ -24,8 +26,20 @@ const useStyles = makeStyles({
   iconButtons: {
     margin : "0 0 0 auto",
   },
-  goldColor: {
-    color: "gold"
+  iconStyle: {
+    color: "gold",
+    marginRight: "20px",
+  },
+  goldColor:{
+    color: "gold",
+    marginLeft: "10px"
+  },
+  title:{
+    fontFamily: 'Times New Roman',
+    color: "gold",
+    margin: "0 auto",
+    fontSize: "30px"
+
   }
 })
 
@@ -43,12 +57,12 @@ const Header = () => {
    <div  className={classes.root}>
       <AppBar position="fixed"  className={classes.menubar}>
          <Toolbar classNeme={classes.toolBar}>
-            <img src={google} alt="ロゴ" width="60px" 
-            onClick={() => dispatch(push("/"))}
-            />
+         <HomeIcon onClick={()=>dispatch(push("/"))} className={classes.iconStyle} fontSize="large" />
+            <h2 className={classes.title}>The &thinsp; Exibition &thinsp; of &thinsp; Portfolios</h2>
             {isSignedIn && (
               <div className={classes.iconButtons}>
-                <AddToPhotosIcon onClick={()=>dispatch(push("/edit"))} className={classes.goldColor} fontSize="large" />
+                <AddToPhotosIcon onClick={()=>dispatch(push("/edit"))} className={classes.iconStyle} fontSize="large" />
+                <ExitToAppIcon onClick={()=>dispatch(signOut())} className={classes.goldColor} fontSize="large" />
               </div>  
             )}
          </Toolbar>
