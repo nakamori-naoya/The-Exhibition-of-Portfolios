@@ -51,12 +51,14 @@ const PortfolioDetail = () => {
       })
   },[])
 
-  const [usability, setUsability] = useState(0);
-  const [businessOriented, setBusinessOriented] = useState(0);
-  const [sociality, setSociality] = useState(0);
-  const [creativity, setCreativity] = useState(0);
-  const [skill, setSkill] = useState(0);
-  const [totalCount, setTotalCount] = useState(0);
+
+  const [yusability, setUsability] = useState(0);
+  const [ybusinessOriented, setBusinessOriented] = useState(0);
+  const [ysociality, setSociality] = useState(0);
+  const [ycreativity, setCreativity] = useState(0);
+  const [yskill, setSkill] = useState(0);
+  const [ytotalCount, setTotalCount] = useState(0);
+  
 
 
 
@@ -84,6 +86,8 @@ const PortfolioDetail = () => {
     setTotalCount(event.target.value)
   }, [setTotalCount]);
 
+ 
+
 
  return (
    <>
@@ -104,7 +108,7 @@ const PortfolioDetail = () => {
                          <img alt="" src={snsIcon} className={classes.icon} />
                        </a>
                        <div  className='module-spacer--small' />
-                       <RaderPlot selfEval={portfolio.selfEval}/>
+                       <RaderPlot selfEval={portfolio.selfEval} usability={portfolio.usability}/>
                     </div>
                 </Grid>
                 <Grid  item xs={4} >              
@@ -121,32 +125,32 @@ const PortfolioDetail = () => {
              
       <div className="c-content-display c-section-wrapin">
       <SelectButton
-      label={"Usability"} value={usability} onChange={selectUsability} 
+      label={"Usability"} value={yusability} onChange={selectUsability} 
       datas={[1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0]} description={"使いやすさを評価して下さい"}   />
       <SelectButton
-      label={"Sociality"} value={sociality} onChange={selectSociality} 
+      label={"Sociality"} value={ysociality} onChange={selectSociality} 
       datas={[1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0]} description={"社会貢献性を評価して下さい"}   />
       <SelectButton
-      label={"Businness Oriented"} value={businessOriented} onChange={selectBusinessOriented} 
+      label={"Businness Oriented"} value={ybusinessOriented} onChange={selectBusinessOriented} 
       datas={[1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0]} description={"ビジネス性を評価して下さい"}   />
       </div> 
 
       <div className="c-content-display c-section-wrapin">
       <SelectButton
-      label={"Creativity"} value={creativity} onChange={selectCreativity} 
+      label={"Creativity"} value={ycreativity} onChange={selectCreativity} 
       datas={[1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0]} description={"発想の柔軟性を評価して下さい"}   />
       <SelectButton
-      label={"Skill"} value={skill} onChange={selectSkill} 
+      label={"Skill"} value={yskill} onChange={selectSkill} 
       datas={[1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0]} description={"技術力を評価して下さい　　　"}   />
       <SelectButton
-      label={"Total Count"} value={totalCount} onChange={selectTotalCount} 
+      label={"Total Count"} value={ytotalCount} onChange={selectTotalCount} 
       datas={[1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0]} description={"総合評価を教えて下さい"}   />
       </div>
       <div className="center">
         <div  className="module-spacer--small"/> 
           <LightBlueButton
           label={"登録"}
-          onClick={()=>dispatch(saveEvaluation(id, usability, sociality, businessOriented, creativity, skill, totalCount))}
+          onClick={()=>dispatch(saveEvaluation(id, yusability, ysociality, ybusinessOriented, ycreativity, yskill, ytotalCount))}
           />
       </div>
     </>  

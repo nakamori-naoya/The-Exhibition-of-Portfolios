@@ -20,8 +20,14 @@ size:{
 
 export const RaderPlot = (props) => {
   const classes = useStyles()
+  console.log(props.usability)
+
+  const sumUsability = props.usability.reduce((a,b)=>{
+    return (a + b) 
+  })
 
 const datas = {
+  
   labels: [
     "使いやすさ",
     "ビジネス性",
@@ -45,7 +51,7 @@ const datas = {
     borderColor: "#ff1493",
     pointBackgroundColor:  "f1493",
     pointBorderColor: "#fff",
-    data: [1,2,2]
+    data: [sumUsability / props.usability.length , 2, 2]
   }
 ]
 }
