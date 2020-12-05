@@ -6,8 +6,7 @@ import google from "../../../assets/img/google.png"
 import { useSelector, useDispatch } from 'react-redux';
 import {push} from "connected-react-router" 
 import { getIsSignedIn } from '../../../reducks/users/selector';
-import AddToQueueIcon from '@material-ui/icons/AddToQueue';
-import { Button } from '@material-ui/core';
+import AddToPhotosIcon from '@material-ui/icons/AddToPhotos';
 
 const useStyles = makeStyles({
   root: {
@@ -24,6 +23,9 @@ const useStyles = makeStyles({
   },
   iconButtons: {
     margin : "0 0 0 auto",
+  },
+  goldColor: {
+    color: "gold"
   }
 })
 
@@ -46,7 +48,7 @@ const Header = () => {
             />
             {isSignedIn && (
               <div className={classes.iconButtons}>
-                <AddToQueueIcon onClick={()=>dispatch(push("/edit"))} color="secondary" fontSize="large" />
+                <AddToPhotosIcon onClick={()=>dispatch(push("/edit"))} className={classes.goldColor} fontSize="large" />
               </div>  
             )}
          </Toolbar>
