@@ -8,17 +8,16 @@ import GitHubIcon from '@material-ui/icons/GitHub';
 import DesktopMacIcon from '@material-ui/icons/DesktopMac';
 import { RaderPlot } from './components/RaderPlot';
 import ControlledAccordions from '../UIkit/ControlledAccordion';
-import EmailIcon from '@material-ui/icons/Email';
-import BottomAppBar from '../UIkit/BottomAppBar';
-import BoxTextInput from '../UIkit/BoxTextInput';
+import AndroidIcon from '@material-ui/icons/Android';
 import LightBlueButton from '../UIkit/LightBlueButton';
+import snsIcon from '../assets/img/snsIcon.png'; 
+import { SelectButton } from '../UIkit/SelectButton';
 
 
 
 const useStyles = makeStyles(() => ({
   detail: {
       textAlign: 'left',
-
       },
   icon: {
     height: 96,
@@ -51,31 +50,40 @@ const PortfolioDetail = () => {
       })
   },[])
 
+  const [usability, setUsability] = useState(0);
+  const [businessOriented, setBusinessOriented] = useState(0);
+  const [sociality, setSociality] = useState(0);
 
-  //commnetの投稿
-  const portfolioId = portfolio.id
-  const [comment, setComment ] = useState("") 
-  const  inputComment  = useCallback( (event) => {
-     setComment(event.target.value)
-  }, [setComment]);
+  const  selectUsability  = useCallback((event) => {
+    setUsability(event.target.value)
+  }, [setUsability]);
+
+  const  selectBusinessOriented  = useCallback((event) => {
+    setBusinessOriented(event.target.value)
+  }, [setBusinessOriented]);
+
+  const  selectSociality  = useCallback((event) => {
+    setSociality(event.target.value)
+  }, [setSociality]);
+
 
  return (
    <>
             {portfolio && (
+              <>
               <Grid container spacing={5}>  
                 <Grid  item xs={4} >
                     <div className={classes.detail}>
                         <h2 className="u-text__headline">{portfolio.appName}</h2>
 
                       <a href={portfolio.appUrl} className={classes.linkDecoration}>
-                       <DesktopMacIcon className={classes.icon}/>
+                       <AndroidIcon className={classes.icon}/>
                       </a>
-
                        <a href={portfolio.githubUrl} className={classes.linkDecoration}>
                         <GitHubIcon className={classes.icon}/>
                        </a>
                        <a href={portfolio.githubUrl} className={classes.linkDecoration}>
-                        <EmailIcon className={classes.icon}/>
+                         <img alt="" src={snsIcon} className={classes.icon} />
                        </a>
                        <div  className='module-spacer--small' />
                        <RaderPlot/>
@@ -90,18 +98,33 @@ const PortfolioDetail = () => {
                     remakablePoints={portfolio.remakablePoints}
                     futureIssue={portfolio.futureIssue}
                     />
-                </Grid>  
-                <Grid  item xs={4} >              
-                  <BottomAppBar PortfolioId={portfolio.id}/>
-                  <BoxTextInput  
-                    fullWidth={true}  label={"コメント投稿"}  multiline={true} rows={2}
-                    type={"text"}  value={comment}  
-                    onChange={inputComment} placeholder={"誹謗中傷以外なんでも！！"}/>
-                  <LightBlueButton
-      //onClick={()=>dispatch(saveCommnets(portfolioId, comment))}
-      label={"投稿"}/>
                 </Grid>
              </Grid>  
+             
+      <div className="c-content-display c-section-wrapin">
+      <SelectButton
+      label={"Usability"} value={usability} onChange={selectUsability} 
+      datas={[1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0]} description={"使いやすさを評価して下さい"}   />
+      <SelectButton
+      label={"Sociality"} value={sociality} onChange={selectSociality} 
+      datas={[1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0]} description={"社会貢献性を評価して下さい"}   />
+      <SelectButton
+      label={"Businness Oriented"} value={businessOriented} onChange={selectBusinessOriented} 
+      datas={[1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0]} description={"ビジネス性を評価して下さい"}   />
+      </div> 
+
+      <div className="c-content-display c-section-wrapin">
+      <SelectButton
+      label={"Creativity"} value={businessOriented} onChange={selectBusinessOriented} 
+      datas={[1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0]} description={"発想の柔軟性を評価して下さい"}   />
+      <SelectButton
+      label={"Technological Strength"} value={businessOriented} onChange={selectBusinessOriented} 
+      datas={[1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0]} description={"技術力を評価して下さい　　　"}   />
+      <SelectButton
+      label={"Total Count"} value={businessOriented} onChange={selectBusinessOriented} 
+      datas={[1.0, 1.5, 2.0, 2.5, 3.0, 3.5, 4.0, 4.5, 5.0]} description={"総合評価を教えて下さい"}   />
+      </div>
+    </>  
             )}
   </>
  )
