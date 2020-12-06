@@ -75,7 +75,7 @@
 
 /* p-media__thumbの3つを使うことで画像を1:1に切り抜く */
 .p-media__thumb {
-  position: relative;
+  margin-top: 80px;
   overflow: hidden;
   width: 100%;
 }

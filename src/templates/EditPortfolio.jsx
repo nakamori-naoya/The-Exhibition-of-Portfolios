@@ -111,7 +111,7 @@ export const EditPortofolio = () => {
          />
           <BoxTextInput
          fullWidth={true} label={"SNS連携"} multiline={false} required={true}
-         onChange={inputSnsUrl} rows={1} value={snsUrl} type={"text"} placeholder={"あなたのSNSのURLを一つだけご記入ください。公開しても良いものをご記入ください。"}
+         onChange={inputSnsUrl} rows={1} value={snsUrl} type={"text"} placeholder={"公開可能なSNSのURLを一つだけご記入ください。"}
          />
          <TextInput
          fullWidth={true} label={"作成の動機"} multiline={true} required={true} 

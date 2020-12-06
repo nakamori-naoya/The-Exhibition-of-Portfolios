@@ -34,7 +34,7 @@ const SignUp = () => {
 
 
  return (
-   <div className="c-section-container">
+   <div className="c-section-containery">
      <h2 className="u-text__headline u-text-center" >アカウントの登録</h2>
      <div className="module-spacer--medium"/>
      <BoxTextInput
