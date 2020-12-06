@@ -11,6 +11,7 @@ import IconButton from "@material-ui/core/IconButton";
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
+import { deletePortfolio } from '../../reducks/Portfolios/operations';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -91,7 +92,7 @@ const useStyles = makeStyles((theme) => ({
                     </Typography>
                 </div>
 
-                        <IconButton className={classes.icon} onClick={handleClick} color="secondary">
+                        {/* <IconButton className={classes.icon} onClick={handleClick} color='secondary'>
                             <MoreVertIcon />
                         </IconButton>
                         <Menu
@@ -111,13 +112,13 @@ const useStyles = makeStyles((theme) => ({
                             </MenuItem>
                             <MenuItem
                                 onClick={() => {
-                                   // dispatch(deleteProduct(props.id))
+                                   dispatch(deletePortfolio(props.id))
                                     handleClose()
                                 }}
                             >
                                 削除する
                             </MenuItem>
-                        </Menu>
+                        </Menu> */}
                 
             </CardContent>
         </Card>

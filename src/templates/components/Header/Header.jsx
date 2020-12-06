@@ -10,6 +10,7 @@ import AddToPhotosIcon from '@material-ui/icons/AddToPhotos';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import { signOut } from '../../../reducks/users/operations';
 import SmsIcon from '@material-ui/icons/Sms';
+import FormDialog from '../Forms/FormDialog';
 
 const useStyles = makeStyles({
   root: {
@@ -38,7 +39,7 @@ const useStyles = makeStyles({
   title:{
     fontFamily: 'Times New Roman',
     color: "gold",
-    margin: "0 0 0 450px",
+    margin: "0 auto",
     fontSize: "30px"
 
   }
@@ -50,6 +51,16 @@ const Header = () => {
   const selector = useSelector(state => state); 
   const isSignedIn = getIsSignedIn(selector);
   const dispatch = useDispatch();
+  const [open, setOpen] = useState(false); 
+
+  
+  const handleOpen = useCallback(() => {
+    setOpen(true)
+  },[setOpen]);
+
+  const handleClose = useCallback(() => {
+    setOpen(false)
+  },[setOpen]);
   
 
 
@@ -59,9 +70,11 @@ const Header = () => {
       <AppBar position="fixed"  className={classes.menubar}>
          <Toolbar classNeme={classes.toolBar}>
          <HomeIcon onClick={()=>dispatch(push("/"))} className={classes.iconStyle} fontSize="large" />
-         <SmsIcon onClick={()=>dispatch(push("/"))} className={classes.goldColor} fontSize="large" />
+         
+          <FormDialog  open={open} handleOpen={handleOpen} handleClose={handleClose}/>
+         
 
-            <h2 className={classes.title}>The &thinsp; Exibition &thinsp; of &thinsp; Portfolios</h2>
+            <h2 className={classes.title}>The &thinsp; Exhibition &thinsp; of &thinsp; Portfolios</h2>
             
             {isSignedIn && (
               <div className={classes.iconButtons}>
