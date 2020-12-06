@@ -1,6 +1,6 @@
 import { db, FirebaseTimestamp } from '../../firebase/index';
 import { push } from 'connected-react-router';
-import { fetchPortfoliosAction } from './actions';
+import { deletePortfolioAction, fetchPortfoliosAction } from './actions';
 import firebase from "firebase/app"
 
 
@@ -77,5 +77,17 @@ export const saveEvaluation = (id, usability, sociality, businessOriented, creat
     console.log(id)
      dispatch(push(id))
    })
+  }
+}
+
+
+export const deletePortfolio  = (id) => {
+  return async (dispatch, getState) => {
+    db.collection("portfolio").doc(id).delete()
+       .then(() =>{
+         const prevPortfolio = getState().portfolios.list;
+         const nextPortfolio = prevPortfolio.filter(portfolio => portfolio.id !== id)
+           dispatch(deletePortfolioAction(nextPortfolio))
+       })
   }
 }

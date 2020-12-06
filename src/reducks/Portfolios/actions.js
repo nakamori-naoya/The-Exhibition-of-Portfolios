@@ -5,3 +5,11 @@ export const fetchPortfoliosAction = (portfolios) => {
         payload: portfolios
     }
   }
+
+export const DELETE_PORTFOLIO = "DELETE_PORTFOLIO";
+export const deletePortfolioAction = (portfolios) => {
+    return {
+        type: "DELETE_PORTFOLIO",
+        payload: portfolios
+    }
+}

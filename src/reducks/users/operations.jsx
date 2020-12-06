@@ -62,7 +62,7 @@ export const signIn = (email, password) => {
              const data = snapshot.data()
              dispatch(signInAction({
                isSignedIn: true,
-               role: data.role,
+               role: "member",
                uid: uid,
                username: data.username
              }))

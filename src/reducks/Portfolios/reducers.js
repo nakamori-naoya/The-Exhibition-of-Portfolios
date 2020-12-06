@@ -8,6 +8,11 @@ export const PortfoliosReducer = (state = initialState.portfolios, action)  => {
               ...state,
               list: action.payload
           };
+       case Actions.DELETE_PORTFOLIO:
+            return {
+                ...state,
+                list: action.payload
+          };      
       default:
           return state
   }
