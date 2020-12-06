@@ -9,7 +9,6 @@ import { getIsSignedIn } from '../../../reducks/users/selector';
 import AddToPhotosIcon from '@material-ui/icons/AddToPhotos';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import { signOut } from '../../../reducks/users/operations';
-import SmsIcon from '@material-ui/icons/Sms';
 import FormDialog from '../Forms/FormDialog';
 
 const useStyles = makeStyles({

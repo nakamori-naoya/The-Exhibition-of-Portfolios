@@ -8,8 +8,8 @@ import Header from './templates/components/Header/Header';
 const App = () => {
      return (
      <>
-       <Header />
-       <main>
+       <Header/>
+       <main className="c-main">
           <Router />
        </main>
       </> 
