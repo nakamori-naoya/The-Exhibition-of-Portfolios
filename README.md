@@ -40,7 +40,7 @@
 https://index-portfolio-e083c.firebaseapp.com/
 
 ## テスト用アカウント
-メールアドレス：test@gmail.com
+メールアドレス：test@gmail.com      
 パスワード：test2021
 
 
