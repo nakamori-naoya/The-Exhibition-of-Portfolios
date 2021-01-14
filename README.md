@@ -56,8 +56,6 @@ https://index-portfolio-e083c.firebaseapp.com/
 
 
 
-## 【商品購入】
-
 
 # 制作背景と実装を通じてのインサイト  
 
